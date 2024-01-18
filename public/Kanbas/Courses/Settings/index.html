@@ -1,0 +1,166 @@
+<html>
+    <head> </head>
+    <body>
+        <button>Course Details</button> 
+        <button>Sections</button>
+        <button>Navigations</button>
+        <button>Sections</button>
+        <button>Feature Options</button>
+        <button>Integrations</button>
+        <hr/>
+
+        <h2>Course Details</h2>
+        <br/>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label><b>Image:</b></label> 
+                        <br/><br/>
+                        <label><b>Name:</b></label>
+                    </td>
+                    <td>
+                        <input type="file" title="Choose Image" />
+                        <br/>
+                        <p>CS4550 12631 Web Development SEC 01 Fall 2023 (BOS-1-TR)</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><b>Course Code:</b> CS4550.12631.202410</p> 
+        
+        <p><b>Blueprint Course:</b>No</p> 
+        
+        <label><b>Course Template:</b></label> 
+        <input
+            type="checkbox"
+            name="coursetemplate-chbox"
+        />
+        <label>Enable course as a Course Template</label>
+        <br/><br/>
+
+        <label><b>Time Zone:</b></label> 
+        <select>
+            <option>Eastern Time (US & Canada) (-05:00/-04:00)</option>
+            <option>Mountain Time</option>
+            <option>Pacific Time</option>
+            <option>Eastern Time (New York)</option>
+        </select> <br/>
+
+        <p><b>SIS ID:</b> CS4550.12631.202410</p> 
+
+        <p><b>Subaccount:</b> CS Undergrad</p> 
+
+        <p><b>Term:</b> 202410_1 Fall 2023 Semester Full Term</p> 
+
+        <label><b>Participation:</b></label> 
+        <select>
+            <option>Term</option>
+            <option>Quarter</option>
+            <option>Year</option>
+        </select> <br/>
+        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Course participation is limited to term start and end dates.</p>
+
+        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Start</p>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="date"/>
+
+        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End</p>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="date"/>
+        <br/><br/>
+
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input
+            type="checkbox"
+            name="viewCourseBefore-chbox"
+        />
+        <label>Restrict students from viewing course before term start date</label><br/><br/>
+
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input
+            type="checkbox"
+            name="viewCourseAfter"
+        />
+        <label>Restrict students from viewing course after term end date</label> <br/><br/>
+        
+
+        <label><b>Default due time:</b></label> 
+        <select>
+            <option>Account default (11:59pm)</option>
+            <option>Mid-Day(12:00pm)</option>
+            <option>Custom</option>
+        </select> <br/>
+        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;This influences the user interface for setting due dates. It does not change the time due for an existing assignments.</p>
+    
+        <label><b>Language:</b></label> 
+        <select>
+            <option>Not set (user configurable, defaults to English (Unit))</option>
+            <option>Mid-Day(12:00pm)</option>
+            <option>Custom</option>
+        </select> <br/>
+        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;This will override any user/system language preferences. This is only recommended for foreign language courses</p>
+        
+        <p><b>File Storage:</b> 10000 megabytes</p>
+        
+        <label><b>Large Course:</b></label>
+        <input
+            type="checkbox"
+            name="largeCourse-chbox"
+        />
+        <label>Launch SpeedGrader Filtered by Student Group</label>
+        <br/><br/>
+
+        <label><b>Grading Scheme:</b></label>
+        <input
+            type="checkbox"
+            name="gradingSch-chbox"
+        />
+        <label>Enable course grading scheme</label>
+        <br/><br/>
+
+        <label><b>License:</b></label> 
+        <select>
+            <option>Private (Copyrighted)</option>
+        </select> <br/><br/>
+
+        <label><b>File Copyright:</b></label>
+        <input
+            type="checkbox"
+            name="fileCop-chbox"
+        />
+        <label>Copyright and license information must be provided for files before they are published.</label>
+        <br/><br/>
+
+        <label><b>Visibility:</b> If you need to make your course public please contact your administrator / support</label> 
+        <br/>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<select>
+            <option>Course</option>
+        </select> <br/>
+        &emsp;&emsp;&emsp;&emsp;&emsp;<input
+            type="checkbox"
+            name="fileCop-chbox"
+        />
+        <label>Include this course in the public course index.</label>
+        <br/><br/>
+
+        <label><b>Format:</b></label> 
+        <select>
+            <option>On-Campus</option>
+            <option>Online</option>
+        </select> <br/><br/>
+
+        <label><b>Mastery Paths:</b></label>
+        <input
+            type="checkbox"
+            name="path-chbox"
+        />
+        <label>Enable individual learning paths for students based on assessment.</label>
+        <br/>
+
+        <label><b>Description:</b></label>
+        <textarea cols="25" rows="8"></textarea>
+        <br/>
+        <p>more options</p>
+
+        <button>Update Course Details</button>
+    </body>
+</html>
