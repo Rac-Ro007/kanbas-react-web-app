@@ -10,157 +10,287 @@
         <hr/>
 
         <h2>Course Details</h2>
-        <br/>
 
-        <table>
+        <table valign="top">
             <tbody>
                 <tr>
-                    <td>
+                    <td valign="top">
                         <label><b>Image:</b></label> 
-                        <br/><br/>
-                        <label><b>Name:</b></label>
                     </td>
-                    <td>
+                    <td valign="top">
                         <input type="file" title="Choose Image" />
-                        <br/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td valign="top">
+                        <p><b>Name:</b></p>
+                    </td>
+                        
+                    <td valign="top">
                         <p>CS4550 12631 Web Development SEC 01 Fall 2023 (BOS-1-TR)</p>
                     </td>
                 </tr>
+                
+                <tr>
+                    <td valign="top">
+                        <p><b>Course Code:</b></p> 
+                    </td>
+
+                    <td valign="top">
+                        <p>CS4550.12631.202410</p> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Blueprint Course:</b></p> 
+                    </td>
+
+                    <td valign="top">
+                        <p>No</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Course Template:</b></p> 
+                    </td>
+
+                    <td valign="top">
+                        <input
+                            type="checkbox"
+                            name="coursetemplate-chbox"
+                        />
+                        <label>Enable course as a Course Template</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Time Zone:</b></p> 
+                    </td>
+
+                    <td valign="top">
+                        <select>
+                            <option>Eastern Time (US & Canada) (-05:00/-04:00)</option>
+                            <option>Mountain Time</option>
+                            <option>Pacific Time</option>
+                            <option>Eastern Time (New York)</option>
+                        </select> 
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td valign="top">
+
+                        <p><b>SIS ID:</b></p> 
+
+                    </td>
+                    <td valign="top">
+                        <p>CS4550.12631.202410</p> 
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <p><b>Subaccount:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <p>CS Undergrad</p> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Term:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <p>202410_1 Fall 2023 Semester Full Term</p> 
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td valign="top">
+                        <p><b>Participation:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <select>
+                            <option>Term</option>
+                            <option>Quarter</option>
+                            <option>Year</option>
+                        </select> 
+
+                        <p>Course participation is limited to term start and end dates.</p>
+
+                        <p>Start</p>
+                        <input type="date"/>
+
+                        <p>End</p>
+                        <input type="date"/>
+                        <br/><br/>
+
+                        <input
+                            type="checkbox"
+                            name="viewCourseBefore-chbox"
+                        />
+                        <label>Restrict students from viewing course before term start date</label><br/><br/>
+
+                        <input
+                            type="checkbox"
+                            name="viewCourseAfter"
+                        />
+                        <label>Restrict students from viewing course after term end date</label> <br/><br/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td valign="top">
+                        <p><b>Default due time:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <select>
+                            <option>Account default (11:59pm)</option>
+                            <option>Mid-Day(12:00pm)</option>
+                            <option>Custom</option>
+                        </select>
+                        <p>This influences the user interface for setting due dates. It does not change the time due for an existing assignments.</p>
+                        <br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Language:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <select>
+                            <option>Not set (user configurable, defaults to English (Unit))</option>
+                            <option>Mid-Day(12:00pm)</option>
+                            <option>Custom</option>
+                        </select>
+                        <p>his will override any user/system language preferences. This is only recommended for foreign language courses</p>
+                        <br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>File Storage:</b></p>
+                    </td>
+                    <td valign="top">
+                        <p>10000 megabytes</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Large Course:</b></p>
+                    </td>
+                    <td valign="top">
+                        <input
+                            type="checkbox"
+                            name="largeCourse-chbox"
+                        />
+                        <label>Launch SpeedGrader Filtered by Student Group</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Grading Scheme:</b></p>
+                    </td>
+                    <td valign="top">
+                        <input
+                            type="checkbox"
+                            name="gradingSch-chbox"
+                        />
+                        <label>Enable course grading scheme</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>License:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <select>
+                            <option>Private (Copyrighted)</option>
+                        </select> 
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td valign="top">
+                        <p><b>File Copyright:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <input
+                            type="checkbox"
+                            name="fileCop-chbox"
+                        />
+                        <label>Copyright and license information must be provided for files before they are published.</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Visibility:</b></p>
+                    </td>
+                    <td valign="top">
+                        <p>If you need to make your course public please contact your administrator / support</p> 
+                        <select>
+                            <option>Course</option>
+                        </select> <br/><br/>
+                        <input
+                            type="checkbox"
+                            name="fileCop-chbox"
+                        />
+                        <label>Include this course in the public course index.</label>
+                        <br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Format:</b></p> 
+                    </td>
+                    <td valign="top">
+                        <select>
+                            <option>On-Campus</option>
+                            <option>Online</option>
+                        </select> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Mastery Paths:</b></p>
+                    </td>
+                    <td valign="top">
+                        <input
+                            type="checkbox"
+                            name="path-chbox"
+                        />
+                        <label>Enable individual learning paths for students based on assessment.</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="top">
+                        <p><b>Description:</b></p>
+                    </td>
+                    <td valign="top">
+                        <textarea cols="25" rows="8"></textarea>
+                        <a href="#"><p>more options</p></a>
+                    </td>
+                </tr>
+
             </tbody>
         </table>
+        <hr/>
 
-        <p><b>Course Code:</b> CS4550.12631.202410</p> 
-        
-        <p><b>Blueprint Course:</b>No</p> 
-        
-        <label><b>Course Template:</b></label> 
-        <input
-            type="checkbox"
-            name="coursetemplate-chbox"
-        />
-        <label>Enable course as a Course Template</label>
-        <br/><br/>
-
-        <label><b>Time Zone:</b></label> 
-        <select>
-            <option>Eastern Time (US & Canada) (-05:00/-04:00)</option>
-            <option>Mountain Time</option>
-            <option>Pacific Time</option>
-            <option>Eastern Time (New York)</option>
-        </select> <br/>
-
-        <p><b>SIS ID:</b> CS4550.12631.202410</p> 
-
-        <p><b>Subaccount:</b> CS Undergrad</p> 
-
-        <p><b>Term:</b> 202410_1 Fall 2023 Semester Full Term</p> 
-
-        <label><b>Participation:</b></label> 
-        <select>
-            <option>Term</option>
-            <option>Quarter</option>
-            <option>Year</option>
-        </select> <br/>
-        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Course participation is limited to term start and end dates.</p>
-
-        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Start</p>
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="date"/>
-
-        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End</p>
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input type="date"/>
-        <br/><br/>
-
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input
-            type="checkbox"
-            name="viewCourseBefore-chbox"
-        />
-        <label>Restrict students from viewing course before term start date</label><br/><br/>
-
-        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<input
-            type="checkbox"
-            name="viewCourseAfter"
-        />
-        <label>Restrict students from viewing course after term end date</label> <br/><br/>
-        
-
-        <label><b>Default due time:</b></label> 
-        <select>
-            <option>Account default (11:59pm)</option>
-            <option>Mid-Day(12:00pm)</option>
-            <option>Custom</option>
-        </select> <br/>
-        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;This influences the user interface for setting due dates. It does not change the time due for an existing assignments.</p>
-    
-        <label><b>Language:</b></label> 
-        <select>
-            <option>Not set (user configurable, defaults to English (Unit))</option>
-            <option>Mid-Day(12:00pm)</option>
-            <option>Custom</option>
-        </select> <br/>
-        <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;This will override any user/system language preferences. This is only recommended for foreign language courses</p>
-        
-        <p><b>File Storage:</b> 10000 megabytes</p>
-        
-        <label><b>Large Course:</b></label>
-        <input
-            type="checkbox"
-            name="largeCourse-chbox"
-        />
-        <label>Launch SpeedGrader Filtered by Student Group</label>
-        <br/><br/>
-
-        <label><b>Grading Scheme:</b></label>
-        <input
-            type="checkbox"
-            name="gradingSch-chbox"
-        />
-        <label>Enable course grading scheme</label>
-        <br/><br/>
-
-        <label><b>License:</b></label> 
-        <select>
-            <option>Private (Copyrighted)</option>
-        </select> <br/><br/>
-
-        <label><b>File Copyright:</b></label>
-        <input
-            type="checkbox"
-            name="fileCop-chbox"
-        />
-        <label>Copyright and license information must be provided for files before they are published.</label>
-        <br/><br/>
-
-        <label><b>Visibility:</b> If you need to make your course public please contact your administrator / support</label> 
-        <br/>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<select>
-            <option>Course</option>
-        </select> <br/>
-        &emsp;&emsp;&emsp;&emsp;&emsp;<input
-            type="checkbox"
-            name="fileCop-chbox"
-        />
-        <label>Include this course in the public course index.</label>
-        <br/><br/>
-
-        <label><b>Format:</b></label> 
-        <select>
-            <option>On-Campus</option>
-            <option>Online</option>
-        </select> <br/><br/>
-
-        <label><b>Mastery Paths:</b></label>
-        <input
-            type="checkbox"
-            name="path-chbox"
-        />
-        <label>Enable individual learning paths for students based on assessment.</label>
-        <br/>
-
-        <label><b>Description:</b></label>
-        <textarea cols="25" rows="8"></textarea>
-        <br/>
-        <p>more options</p>
-
-        <button>Update Course Details</button>
+        <div align="right">
+            <button>Update Course Details</button>
+        </div>
     </body>
 </html>
