@@ -1,0 +1,121 @@
+.wd-kanbas-navigation {
+  background-color: black;
+  list-style: none;
+  position: fixed;
+  padding: 0px;
+  margin: 0px;
+  width: 80px;
+  overflow-x: hidden;
+  overflow-y: auto; 
+  height: 100%;
+}
+
+.wd-kanbas-navigation li {
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.wd-kanbas-navigation li.wd-active {
+  background-color: white;
+}
+
+.wd-kanbas-navigation li.wd-active a {
+  color: red;
+}
+
+.wd-kanbas-navigation a {
+  color: white;
+  text-decoration: none;
+}
+
+.wd-kanbas-navigation a i {
+  color: red;
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+/* Collapsed Navbar Styles for Smaller Screens */
+@media (max-width: 767px) {
+  .wd-kanbas-navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      height: auto;
+  }
+
+  .wd-kanbas-navigation li {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+  }
+
+  .wd-kanbas-navigation li.wd-active {
+      background-color: black;
+  }
+
+  .wd-kanbas-navigation li.wd-active a {
+      color: white;
+  }
+
+  .wd-kanbas-navigation a i {
+      color: white;
+  }
+}
+
+
+/* .wd-kanbas-navigation {
+    background-color: black;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 80px;
+    overflow-x: hidden;
+    overflow-y: auto; 
+    height: 100%;
+  }
+  .wd-kanbas-navigation li {
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+    text-align: center;
+  }
+  .wd-kanbas-navigation li.wd-active {
+    background-color: white;
+  }
+  .wd-kanbas-navigation li.wd-active a {
+    color: red;
+  }
+  .wd-kanbas-navigation a {
+    color: white;
+    text-decoration: none;
+  }
+  .wd-kanbas-navigation a i {
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: 768px) {
+    #sidebar {
+      width: 100%;
+      height: auto;
+      position: static;
+    }
+
+    .wd-kanbas-navigation {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    #navbar a {
+      text-align: center;
+    }
+  } */
