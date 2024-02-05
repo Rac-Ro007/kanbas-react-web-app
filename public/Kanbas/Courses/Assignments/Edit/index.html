@@ -1,84 +1,127 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/Kanbas/styles.css" />
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Assignments/index.css" />
     </head>
     <body>
-        <select>
+        <div class="container pt-4 align-items-center">
+        <select class="form-control">
             <option>Speed Grader</option>
             <option>Publish</option>
             <option>Unpublish</option>
         </select>
         <hr width="100%">
         
-        <h2>Assignment Name</h2>
-        <input type="text" value="A1 - ENV + HTML" /> <br/> <br />
+        <h4>Assignment Name</h4>
+        <input class="form-control" type="text" value="A1 - ENV + HTML" /> <br/> <br />
  
-        <textarea name="bio" cols="20" rows="2">This is the assignment description</textarea><br/> <br />
+        <textarea class="form-control" name="bio" cols="20" rows="3">This is the assignment description</textarea><br/> <br />
 
-        <label for="points">Points</label> <br />
-        <input type="number" value="100" /> <br/> <br />
+        <div class="row align-items-center">
+            <div class="col-3 text-end">
+                <label for="points">Points</label>
+            </div>
+            <div class="col-9">
+                <input class="form-control" type="number" value="100" />
+            </div>
+        </div>
 
-        <label for="assignment-grp">Assignment Group</label> <br />
-        <select>
-            <option>ASSIGNMENTS</option>
-        </select> <br/> <br />
+        <div class="row align-items-center">
+            <div class="col-3 text-end">
+                <label for="assignment-grp">Assignment Group</label>
+            </div>
+            <div class="col-9">
+                <select class="form-control">
+                    <option>ASSIGNMENTS</option>
+                </select>
+            </div>
+        </div>
 
-        <label for="display-grade">Display Grade as</label> <br />
-        <select>
-            <option>Percentage</option>
-            <option>GPA</option>
-        </select> <br/> <br />
+        <div class="row align-items-center">
+            <div class="col-3 text-end">
+                <label for="display-grade">Display Grade as</label>
+            </div>
+            <div class="col-9">
+                <select class="form-control">
+                    <option>Percentage</option>
+                    <option>GPA</option>
+                </select>
+            </div>
+        </div>
 
-        <label for="Submission-type">Submission Type</label> <br />
-        <select>
-            <option>Online</option>
-        </select> <br/> <br />
+        <div class="row align-items-center">
+            <div class="col-3">
+                
+            </div>
+            <div class="col-9">
+                <input
+                    type="checkbox"
+                    value="Website URL"
+                    name="websiteUrl-chbox"
+                /> 
+                <label for="websiteUrl-chbox">Do not count this assignment towards the final grade</label> <br />
+            </div>
+        </div>
 
-        <label for="chkbox-entry-option">Online Entry Option</label> <br />
-        <input
-            type="checkbox"
-            value="Text Entry"
-            name="TextEntry-chbox"
-        />
-        <label for="TextEntry-chbox">Text Entry</label> <br />
-        <input
-            type="checkbox"
-            value="Website URL"
-            name="websiteUrl-chbox"
-        /> 
-        <label for="websiteUrl-chbox">Website URL</label> <br />
-        <input
-            type="checkbox"
-            value="Media Recordings"
-            name="mediaRec-chbox"
-        />
-        <label for="mediaRec-chbox">Media Recordings</label> <br />
-        <input
-            type="checkbox"
-            value="Student Annotation"
-            name="studentAnno-chbox"
-        />
-        <label for="studentAnno-chbox">Student Annotation</label> <br />
-        <input
-            type="checkbox"
-            value="File Uploads"
-            name="fileUpload-chbox"
-        />
-        <label for="fileUpload-chbox">File Upload</label> <br /> <br />
 
-        <label for="assign">Assign</label> <br />
-        <label for="assign-to">Assign To</label> <br />
-        <input type="text" value="Everyone" /> <br /> <br />
-      
-        <label for="due">Due</label> <br />
-        <input type="date" name="due-date" value="2021-01-01" /> <br /> <br />
-        
-        <label for="due">Available from</label> <br />
-        <input type="date" name="available-date" value="2021-01-01" /> <br /> <br />
-        
-        <label for="due">Until</label> <br />
-        <input type="date" name="until-date" value="2021-01-01" /> <br /> <br />
+        <div class="row align-items-center pb-3">
+            <div class="col-3 text-end">
+                <label for="Submission-type">Submission Type</label>
+            </div>
+            <div class="col-9">
+                <select class="form-control">
+                    <option>Online</option>
+                </select>
+            </div>
+        </div>
 
-        <a href="/kanbas/courses/assignments/screen.html"><button>Cancel</button></a>
-        <a href="/kanbas/courses/assignments/screen.html"><button>Save</button></a>
+
+        <div class="row align-items-top ">
+            <div class="col-3 text-end">
+                <label for="Submission-type">Assign</label>
+            </div>
+            <div class="col-9">
+                <div class="p-3 border border-dark rounded">
+                    <label for="due"><b>Assign to</b></label>
+                    <input type="text" value="Everyone" /> 
+                    
+                    <br/> <br/>
+                    <label for="due">Due</label> <br />
+                    <input class="form-control" type="date" name="due-date" value="2021-01-01" /> 
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="due">Available from</label>
+                            <input class="form-control" type="date" name="available-date" value="2021-01-01" />
+                        </div>
+                        
+                        <div class="col-6">
+                            <label for="due">Until</label> <br />
+                            <input class="form-control" type="date" name="until-date" value="2021-01-01" /> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+            <input type="checkbox" /> 
+            <label>Notify users that this content has changed.</label>
+        </div>
+            <div class="d-flex">
+                <a href="/kanbas/courses/assignments/screen.html"><button style="margin-right: 10px;" class="canvas-button">Cancel</button></a>
+                <a href="/kanbas/courses/assignments/screen.html"><button class="canvas-active-button">Save</button></a>
+            </div>
+        </div>
+    </div>
     </body>
 </html>

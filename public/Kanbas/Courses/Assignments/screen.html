@@ -1,39 +1,103 @@
 <html>
-    <head></head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/Kanbas/styles.css" />
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Assignments/index.css" />
+    </head>
     <body>
-        <table width="100%" >
-            <tbody>
-                <tr>
-                    <!-- K Nav -->
-                    <td valign="top">
-                        <!-- <h3>Kanbas Navigation</h3> -->
-                        <ul>
-                            <li><a href="/Kanbas/Account/Navigation/index.html">
-                               Account</a></li>
-                            <li>
-                             <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
-                            </li>
-                            <li>
-                             <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
-                            </li>
-                            <li>
-                             <a href="/Kanbas/Calendar/index.html">Calendar</a></li>
-                            <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
-                            <li><a href="/Kanbas/History/index.html">History</a></li>
-                            <li><a href="/Kanbas/Studio/index.html">Studio</a></li>
-                            <li><a href="/Kanbas/Commons/index.html">Commons</a></li>
-                            <li><a href="/Kanbas/Help/index.html">Help</a></li>
-                        </ul>  
-                    </td>
-                    <!-- C Nav -->
-                    <td valign="top">
-                        <!-- <h3>Course Navigation</h3> -->
-                        <ul>
+        <div class="d-flex">
+            <div class="d-none d-md-block">
+                <nav class="">
+                    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                    <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
+                        <ul class="wd-kanbas-navigation">
+                            <a class="navbar-brand" href="http://northeastern.edu" style="font-size: 40px;">N</a>
+                            <li><a href="/Kanbas/Account/Profile/screen.html"><i class="fa fa-user-circle-o"></i> Account</a></li>
+                            <li class="wd-active"><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                            <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book fa-fw" aria-hidden="true"></i> Courses</a></li>
+                            <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i> Calendar</a></li>
+                            <li><a href="/Kanbas/Inbox/index.html"><i class="fa fa-inbox fa-fw" aria-hidden="true"></i> Inbox</a></li>
+                            <li><a href="/Kanbas/History/index.html"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> History</a></li>
+                            <li><a href="/Kanbas/Studio/index.html"><i class="fa fa-youtube-play fa-fw" aria-hidden="true"></i> Studio</a></li>
+                            <li><a href="/Kanbas/Commons/index.html"><i class="fa fa-snowflake-o fa-fw" aria-hidden="true"></i> Commons</a></li>
+                            <li><a href="/Kanbas/Help/index.html"><i class="fa fa-question-circle fa-fw" aria-hidden="true"></i><br/> Help</a></li>
+                        </ul>
+                    <!-- </div> -->
+                </nav>
+            </div>
+
+        <div class="d-none d-md-block">
+            <ul class="wd-navigation">
+                <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+                <li><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
+                <li><a href="/Kanbas/Courses/Zoom/index.html">Zoom Meetings</a></li>
+                <li class="wd-active"><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
+                <li><a href="/Kanbas/Courses/Quizzes/screen.html">Quizzes</a></li>
+                <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                <li><a href="/Kanbas/Courses/People/screen.html">People</a></li>
+                <li><a href="/Kanbas/Courses/Panopto/screen.html">Panopto Video</a></li>
+                <li><a href="/Kanbas/Courses/Discussions/screen.html">Discussions</a></li>
+                <li><a href="/Kanbas/Courses/Announcements/screen.html">Announcements</a></li>
+                <li><a href="/Kanbas/Courses/Pages/screen.html">Pages</a></li>
+                <li><a href="/Kanbas/Courses/Files/screen.html">Files</a></li>
+                <li><a href="/Kanbas/Courses/Outcomes/screen.html">Outcomes</a></li>
+                <li><a href="/Kanbas/Courses/Collaborations/screen.html">Collaborations</a></li>
+                <li><a href="/Kanbas/Courses/Syllabus/screen.html">Syllabus</a></li>
+                <li><a href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
+            </ul> 
+        </div>
+
+        <div class="flex-fill pt-4">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div id="sidebar">
+                        <ul class="wd-kanbas-navigation-collapse">
+                            <i class="fa fa-times" id="sidebarClose"></i>
+                            <a class="navbar-brand" href="http://northeastern.edu" style="font-size: 40px;">N</a>
+                            <li><a href="/Kanbas/Account/Profile/screen.html"><i class="fa fa-user-circle-o"></i> Account</a></li>
+                            <li class="wd-active"><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                            <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book fa-fw" aria-hidden="true"></i> Courses</a></li>
+                            <li><a href="/Kanbas/Calendar/index.html"><i class="fa fa-calendar"></i> Calendar</a></li>
+                            <li><a href="/Kanbas/Inbox/index.html"><i class="fa fa-inbox fa-fw" aria-hidden="true"></i> Inbox</a></li>
+                            <li><a href="/Kanbas/History/index.html"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i> History</a></li>
+                            <li><a href="/Kanbas/Studio/index.html"><i class="fa fa-youtube-play fa-fw" aria-hidden="true"></i> Studio</a></li>
+                            <li><a href="/Kanbas/Commons/index.html"><i class="fa fa-snowflake-o fa-fw" aria-hidden="true"></i> Commons</a></li>
+                            <li><a href="/Kanbas/Help/index.html"><i class="fa fa-question-circle fa-fw" aria-hidden="true"></i><br/> Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Courses</a></li>
+                      <li class="breadcrumb-item"><a href="#">Fall 2024</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Assignments</li>
+                    </ol>
+                </nav>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapseChevron">
+                    <i class="fa fa-chevron-down" id="chevronIcon"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapseChevron">
+                    <div id="chevronDropdown">
+                        <ul class="wd-kanbas-navigation-collapse">
                             <li><a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
                             <li><a href="/Kanbas/Courses/Modules/screen.html">Modules</a></li>
                             <li><a href="/Kanbas/Courses/Piazza/index.html">Piazza</a></li>
                             <li><a href="/Kanbas/Courses/Zoom/index.html">Zoom Meetings</a></li>
-                            <li><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
+                            <li class="wd-active"><a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a></li>
                             <li><a href="/Kanbas/Courses/Quizzes/screen.html">Quizzes</a></li>
                             <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
                             <li><a href="/Kanbas/Courses/People/screen.html">People</a></li>
@@ -46,31 +110,44 @@
                             <li><a href="/Kanbas/Courses/Collaborations/screen.html">Collaborations</a></li>
                             <li><a href="/Kanbas/Courses/Syllabus/screen.html">Syllabus</a></li>
                             <li><a href="/Kanbas/Courses/Settings/screen.html">Settings</a></li>
-                        </ul> 
-                    </td>
-                    <!-- Assignments -->
-                    <td valign="top">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input placeholder="Search for Assignments"/>
-                                        <button>Group</button>
-                                        <button>Assignment</button>
-                                        <select>
-                                            <option>Edit Assignment Dates</option>
-                                            <option>Assignment Groups Weight</option>
-                                            <option>Gradescope 1.3</option>
-                                            <option>Common Favourites</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <hr width="100%">
-                        
-                        <h3>ASSIGNMENTS 40% of Total
-                        <select>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div id="chevron">
+                    <i class="fa fa-chevron-down" id="chevronIcon"></i>
+                </div> -->
+            </nav>
+            
+        <div class="row justify-content-end p-3">
+            <div class="container-fluid p-5">
+                <div class="d-flex justify-content-between">
+                    <input class="form-control" style="width: 20%;" placeholder="Search for Assignments"/>
+                    <div class="d-flex">
+                        <button class="btn btn-light p-r-2" style="margin-right: 20px;">
+                            <i class="fa fa-plus ms-2" style="display: contents;"></i>Group</button>
+                        <button class="btn btn-danger" style="margin-right: 20px;">
+                            <i class="fa fa-plus ms-2" style="display: contents;"></i>Assignment</button>
+                        <select class="form-control">
+                            <option>:</option>
+                            <option>Edit Assignment Dates</option>
+                            <option>Assignment Groups Weight</option>
+                            <option>Gradescope 1.3</option>
+                            <option>Common Favourites</option>
+                        </select>
+                    </div>
+                </div>
+
+            <hr width="100%">
+
+            <ul class="list-group wd-modules">
+                <li class="list-group-item">
+                    <div>
+                        <i class="fa fa-ellipsis-v" style="padding-right: 5px;"></i> <span style="font-size:18px;">Assignments</span>
+                        <span class="float-end">
+                            <button class="badge rounded-pill bg-light text-dark p-2">40% of Total</button>
+                            <i class="fa fa-plus ms-2"></i>
+                            <i class="fa fa-ellipsis-v ms-2"></i>
+                            <!-- <select class="form-control">
                             <option>Edit</option>
                             <option>Speed Grader</option>
                             <option>Duplicate</option>
@@ -79,86 +156,145 @@
                             <option>Send To...</option>
                             <option>Copy To...</option>
                             <option>Share to Commons</option>
-                        </select>
-                        </h3>
-                        <ul>
-                            <li><a href="/kanbas/courses/assignments/edit/screen.html">A1 - ENV + HTML</a> <br />
-                                <a href="">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="/kanbas/courses/assignments/edit/screen.html">A2 - CSS + BOOTSTRAP</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="/kanbas/courses/assignments/edit/screen.html">A3 - JS + REACT</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="/kanbas/courses/assignments/edit/screen.html">A4 - STATE + REDUX</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="/kanbas/courses/assignments/edit/screen.html">A5 - NODE + SESSION</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="/kanbas/courses/assignments/edit/screen.html">A6 - MONGO + MONGOOSE</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                        </ul>
-                
-                        <h3>QUIZZES 10% of Total
-                        <select>
-                            <option>Edit</option>
-                            <option>Speed Grader</option>
-                            <option>Duplicate</option>
-                            <option>Delete</option>
-                            <option>Move To...</option>
-                            <option>Send To...</option>
-                            <option>Copy To...</option>
-                            <option>Share to Commons</option>
-                        </select>
-                        </h3>
-                        <ul>
-                            <li><a href="#">Q1 - HTML</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="#">Q2 - CSS</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="#">Q3 - JS.ES6</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="#">Q4 - NODE</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="#">Q5 - MONGO</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                        </ul>
-                        
-                        <h3>EXAMS 20% of Total
-                        <select>
-                            <option>Edit</option>
-                            <option>Speed Grader</option>
-                            <option>Duplicate</option>
-                            <option>Delete</option>
-                            <option>Move To...</option>
-                            <option>Send To...</option>
-                            <option>Copy To...</option>
-                            <option>Share to Commons</option>
-                        </select>
-                        </h3>
-                        <ul>
-                            <li><a href="#">Midterm</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                            <li><a href="#">Final</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                        </ul>
-                
-                        <h3>PROJECT 30% of Total
-                        <select>
-                            <option>Edit</option>
-                            <option>Speed Grader</option>
-                            <option>Duplicate</option>
-                            <option>Delete</option>
-                            <option>Move To...</option>
-                            <option>Send To...</option>
-                            <option>Copy To...</option>
-                            <option>Share to Commons</option>
-                        </select>
-                        </h3>
-                        <ul>
-                            <li><a href="#">Project</a> <br />
-                                <a href="#">Multiple Modules</a> | Not available yet</li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        </select> -->
+                        </span>
+                    </div>
+                    <ul class="list-group">
+                        <!-- Inner Loop -->
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <span class="p-2">
+                                    <i class="fa fa-ellipsis-v ms-2 pr-2"></i>
+                                    <i class="fa fa-pencil-square-o ms-2 pr-2"></i>
+                                </span>
+                                <span class="p-2">
+                                    <a href="/kanbas/courses/assignments/edit/screen.html"><h5>A1 SETUP</h5></a>
+                                    <p>Week 0 - SETUP - Week starting on Monday September 5th(9/5/2022) Module |</p>
+                                    <p><b>Due</b> Sep 18, 2022 at 11.59pm | 100pts</p>
+                                </span>
+                                <span class="ms-auto p-2">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <span class="p-2">
+                                    <i class="fa fa-ellipsis-v ms-2 pr-2"></i>
+                                    <i class="fa fa-pencil-square-o ms-2 pr-2"></i>
+                                </span>
+                                <span class="p-2">
+                                    <h5>A2 HTML</h5>
+                                    <p>Week 1 - HTML - Week starting on Monday September 5th(9/5/2022) Module |</p>
+                                    <p><b>Due</b> Sep 18, 2022 at 11.59pm | 100pts</p>
+                                </span>
+                                <span class="ms-auto p-2">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <span class="p-2">
+                                    <i class="fa fa-ellipsis-v ms-2 pr-2"></i>
+                                    <i class="fa fa-pencil-square-o ms-2 pr-2"></i>
+                                </span>
+                                <span class="p-2">
+                                    <h5>A3 CSS</h5>
+                                    <p>Week 2 - CSS - Week starting on Monday September 5th(9/5/2022) Module |</p>
+                                    <p><b>Due</b> Sep 18, 2022 at 11.59pm | 100pts</p>
+                                </span>
+                                <span class="ms-auto p-2">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <span class="p-2">
+                                    <i class="fa fa-ellipsis-v ms-2 pr-2"></i>
+                                    <i class="fa fa-pencil-square-o ms-2 pr-2"></i>
+                                </span>
+                                <span class="p-2">
+                                    <h5>A4 BOOTSTRAP</h5>
+                                    <p>Week 3 - Bootstrap - Week starting on Monday September 5th(9/5/2022) Module |</p>
+                                    <p><b>Due</b> Sep 18, 2022 at 11.59pm | 100pts</p>
+                                </span>
+                                <span class="ms-auto p-2">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <span class="p-2">
+                                    <i class="fa fa-ellipsis-v ms-2 pr-2"></i>
+                                    <i class="fa fa-pencil-square-o ms-2 pr-2"></i>
+                                </span>
+                                <span class="p-2">
+                                    <h5>A5 JAVASCRIPT</h5>
+                                    <p>Week 4 - Javascript - Week starting on Monday September 5th(9/5/2022) Module |</p>
+                                    <p><b>Due</b> Sep 18, 2022 at 11.59pm | 100pts</p>
+                                </span>
+                                <span class="ms-auto p-2">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="d-flex align-items-center">
+                                <span class="p-2">
+                                    <i class="fa fa-ellipsis-v ms-2 pr-2"></i>
+                                    <i class="fa fa-pencil-square-o ms-2 pr-2"></i>
+                                </span>
+                                <span class="p-2">
+                                    <h5>A6 REACT</h5>
+                                    <p>Week 5 - React - Week starting on Monday September 5th(9/5/2022) Module |</p>
+                                    <p><b>Due</b> Sep 18, 2022 at 11.59pm | 100pts</p>
+                                </span>
+                                <span class="ms-auto p-2">
+                                    <i class="fa fa-check-circle text-success"></i>
+                                    <i class="fa fa-ellipsis-v ms-2"></i>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+    
+                <!-- Quizzes -->
+            </ul> 
+            </div>
+        </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+        <script>
+            document.querySelector('.navbar-toggler').addEventListener('click', function () {
+                document.getElementById('sidebar').classList.toggle('show');
+            });
+        
+            document.getElementById('chevronIcon').addEventListener('click', function () {
+                const navbarCollapseChevron = document.getElementById('navbarCollapseChevron');
+                const isCollapsed = !navbarCollapseChevron.classList.contains('show');
+
+                if (isCollapsed) {
+                    // If it's collapsed, close the sidebar and open the chevron collapse
+                    document.getElementById('sidebar').classList.remove('show');
+                }
+
+                // Toggle the chevron collapse
+                // navbarCollapseChevron.classList.toggle('show', isCollapsed);
+            });
+
+            document.getElementById('sidebarClose').addEventListener('click', function () {
+                document.getElementById('sidebar').classList.toggle('show');
+            });
+        </script>
     </body>
 </html>
