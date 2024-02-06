@@ -108,6 +108,10 @@ navbar-nav {
       color: white;
   }
 
+  .wd-kanbas-navigation-collapse li a {
+    color:red;
+  }
+
   .navbar-toggler {
       display: block;
   }
