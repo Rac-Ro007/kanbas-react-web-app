@@ -26,6 +26,7 @@ function Nav() {
           Kanbas
         </Link>
       </nav>
+      <hr/>
     </>
   );
 }
