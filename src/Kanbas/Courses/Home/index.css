@@ -1,0 +1,133 @@
+.wd-modules,
+.wd-modules * {
+  border-radius: 0%;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wd-modules {
+  margin: 5px;
+}
+
+.wd-modules > li {
+  background-color: lightgray;
+  border: 1px solid gray !important;
+  border-left: none !important;
+}
+
+.wd-modules > li > div {
+  padding: 6px;
+  border-left: 1px solid gray !important;
+}
+
+.wd-modules div:hover {
+  background-color: #C8E5FF;
+}
+
+.wd-modules > li > ul > li {
+  padding: 5px;
+  border-top: 1px solid gray !important;
+  border-left: 4px solid green;
+}
+
+.wd-modules > li {
+  margin-bottom: 20px;
+}
+
+.wd-modules a {
+  text-decoration: none;
+  color: red;
+}
+
+.wd-modules a:hover {
+  text-decoration: underline;
+}
+
+.wd-secondary-btn {
+  
+    background: #f5f5f5;
+    color: #2d3b45;
+    border: 1px solid;
+    border-color: #c7cdd1;
+    border-radius: 3px;
+    transition: background-color .2s ease-in-out;
+    display: inline-block;
+    position: relative;
+    padding: 8px 14px;
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    text-shadow: none;
+    user-select: none;
+}
+
+.wd-secondary-btn > a {
+  text-decoration: none;
+  color: black;
+  margin: 0px;
+  padding:0%;
+}
+
+.wd-btn-success {
+  background-color: lightseagreen;
+}
+
+#wd-course-status {
+align-items: center;
+}
+
+.wd-coming-up-section ul {
+  list-style: none;
+}
+
+.wd-coming-up-section a {
+  text-decoration: none;
+  color: red;
+}
+
+.wd-coming-up-section a:hover {
+  text-decoration: underline;
+}
+
+
+.wd-breadcrumb {
+  font-size: 1.2rem;
+}
+
+.wd-breadcrumb a {
+  text-decoration: none;
+  color: #b52828;
+}
+
+.wd-bc-item:hover {
+  text-decoration: underline;
+}
+
+.wd-bc-item-active{
+  color: black ! important;
+}
+
+.wd-ham-menu {
+  padding-right: 5px;
+}
+
+.wd-top-nav-content {
+  list-style:none;
+  text-align:center;
+}
+
+.wd-top-nav-content a {
+  text-decoration: none;
+  color: white
+}
+
+.wd-top-nav-btn {
+  background-color: black;
+  border: none;
+}

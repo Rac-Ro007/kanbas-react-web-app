@@ -15,7 +15,7 @@ function Dashboard() {
             <div className="col" style={{ width: "300px" }}>
               <div className="card">
                 <img
-                  src="/images/reactjs.png"
+                  src="/images/canvas.jpeg"
                   className="card-img-top"
                   style={{ maxHeight: "150px" }}
                 />
@@ -41,9 +41,9 @@ function Dashboard() {
           ))}
         </div>
       </div>
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(courses, null, 2)}</code>
-      </pre>
+      </pre> */}
     </div>
   );
 }
