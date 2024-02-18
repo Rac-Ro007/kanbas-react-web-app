@@ -6,6 +6,7 @@ import Styles from "./Styles";
 import Highlight from "./Highlight";
 import TodoItem from "./todos/TodoItem";
 import TodoList from "./todos/TodoList";
+import ConditionalOutput from "./ConditionalOutput";
 
 function Assignment3() {
   return (
@@ -20,6 +21,7 @@ function Assignment3() {
           todo={{ done: true, title: "Feed dogs", status: "COMPLETED" }}
         />
       </ul>
+      <ConditionalOutput/>
       <Add a={2} b={4} />
       {Add({ a: 1, b: 2 })}
       Lorem ipsum <Highlight>dolor sit amet</Highlight>, consectetur adipiscing

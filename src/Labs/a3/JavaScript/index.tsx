@@ -11,6 +11,10 @@ import Spreading from "./json/Spreading";
 import BooleanVariables from "./variables/BooleanVariables";
 import VariablesAndConstants from "./variables/VariablesAndConstants";
 import VariableTypes from "./variables/VariableTypes";
+import FunctionParenthesisAndParameters from "./functions/FunctionsParenthesisAndParameters";
+import JsonStringify from "./json/JsonStringify";
+import TemplateLiterals from "./string/TemplateLiterals";
+import House from "./json/House";
 
 function JavaScript() {
   return (
@@ -19,8 +23,12 @@ function JavaScript() {
       <FunctionDestructing />
       <Destructing />
       <Spreading />
+      <House/>
+      <TemplateLiterals/>
+      <JsonStringify/>
       <MapFunction />
       <WorkingWithArrays />
+      <FunctionParenthesisAndParameters />
       <ImpliedReturn />
       <ArrowFunctions />
       <ES5Functions />

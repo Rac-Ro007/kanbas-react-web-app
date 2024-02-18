@@ -1,3 +1,10 @@
+import ArrayIndexAndLength from "./ArrayIndexAndLength";
+import AddingAndRemovingDataToFromArrays from "./AddingAndRemovingDataToFromArrays";
+import ForLoops from "./ForLoops";
+import FindFunction from "./FindFunction";
+import FindIndex from "./FindIndex";
+import FilterFunction from "./FilterFunction";
+
 function WorkingWithArrays() {
     var functionScoped = 2;
     let blockScoped = 5;
@@ -26,6 +33,13 @@ function WorkingWithArrays() {
         stringArray1 = {stringArray1}
         <br />
         variableArray1 = {variableArray1}
+        <br/>
+        <ArrayIndexAndLength/>
+        <AddingAndRemovingDataToFromArrays/>
+        <ForLoops/>
+        <FindFunction/>
+        <FindIndex/>
+        <FilterFunction/>
       </>
     );
   }
