@@ -22,7 +22,7 @@
 }
 
 .wd-modules > li > ul > li {
-  padding: 5px;
+  padding: 10px;
   border-top: 1px solid gray !important;
   border-left: 2px solid green;
 }

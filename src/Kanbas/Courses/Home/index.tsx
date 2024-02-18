@@ -1,11 +1,12 @@
 import ModuleList from "../Modules/List";
 import {FaFileImport, FaBullhorn, FaBullseye, FaChartSimple, FaBell} from "react-icons/fa6";
+import { TbCircle5Filled } from "react-icons/tb";
 
 function Home() {
   return (
     <div className="d-flex">
 
-        <div className="flex-fill">
+        <div className="flex-fill p-1">
             
             <div className="row justify-content-end p-3">
                 <div className="col-auto">
@@ -242,38 +243,25 @@ function Home() {
                     </div> */}
                 </div>
             
-                <hr className="m-2"/>
+                <hr className="m-0"/>
 
                 <div className="row align-items-top pt-2">
                     <div className="col-2 text-end">
-                        <p style={{fontSize: "12px"}}><i className="fa fa-calendar"></i></p>
+                        <TbCircle5Filled color="red" size={22} />
                     </div>
                     <div className="col-10" style={{fontSize: "12px"}}>
-                        <span style={{color:"red"}}>Lecture</span><br/>
-                        CS4550.12631.202410<br/>
-                        Sep 7 at 11.45am
+                        <span style={{color:"red"}}>Grade A1 - ENV + HTML</span><br/>
+                        100 points . Sep 7 at 11.45am
                     </div>
                 </div>
 
                 <div className="row align-items-top pt-2">
                     <div className="col-2 text-end">
-                        <p style={{fontSize: "12px"}}><i className="fa fa-calendar"></i></p>
+                        <TbCircle5Filled color="red" size={22} />
                     </div>
                     <div className="col-10" style={{fontSize: "12px"}}>
-                        <span style={{color:"red"}}>Lecture</span><br/>
-                        CS4550.12631.202410<br/>
-                        Sep 7 at 11.45am
-                    </div>
-                </div>
-
-                <div className="row align-items-top pt-2">
-                    <div className="col-2 text-end">
-                        <p style={{fontSize: "12px"}}><i className="fa fa-calendar"></i></p>
-                    </div>
-                    <div className="col-10" style={{fontSize: "12px"}}>
-                        <span style={{color:"red"}}>Lecture</span><br/>
-                        CS4550.12631.202410<br/>
-                        Sep 7 at 11.45am
+                        <span style={{color:"red"}}>Grade A2 - CSS + Bootstrap</span><br/>
+                        100 points . Oct 12 at 11.45am
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@
 }
 
 .wd-modules > li > ul > li {
-  padding: 5px;
+  padding: 10px;
   border-top: 1px solid gray !important;
   border-left: 4px solid green;
 }
@@ -95,9 +95,9 @@ align-items: center;
   text-decoration: underline;
 }
 
-
 .wd-breadcrumb {
   font-size: 1.2rem;
+  --bs-breadcrumb-divider:'>';
 }
 
 .wd-breadcrumb a {

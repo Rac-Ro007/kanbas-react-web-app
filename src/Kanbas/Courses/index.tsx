@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Routes, Route, Navigate } from "react-router-dom";
+import { useParams, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import courses from "../Database/courses.json";
 import ModuleList from "./Modules/List";
 import Assignments from "./Assignments";
@@ -14,6 +14,9 @@ import { FaBars, FaChevronDown, FaGlasses } from "react-icons/fa6";
 function Courses() {
   const { cid } = useParams();
   const course = courses.find((course) => course._id === cid);
+  const location = useLocation();
+  const { pathname } = location;
+  var currentPath = pathname.split(/[\s/]+/).pop();
   return (
     <div className="container-fluid">
         <div
@@ -47,7 +50,7 @@ function Courses() {
                 <a href="">CS5610.11744.202310</a>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                <a className="wd-bc-item-active">Modules</a>
+                <a className="wd-bc-item-active">{currentPath}</a>
               </li>
             </ol>
           </nav>
@@ -60,7 +63,7 @@ function Courses() {
         </div>
         <hr />
         {/* <hr/> */}
-      <h2> Courses {course?.name}</h2>
+      <p> Courses {course?.name}</p>
       <CourseNavigation />
       <div>
         <div

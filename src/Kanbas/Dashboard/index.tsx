@@ -32,8 +32,8 @@ function Dashboard() {
                     {course.name}
                   </Link>
                   <p className="card-text">Full Stack software developer</p>
-                  <Link to={"#"} className="btn btn-primary">
-                    Go
+                  <Link to={`/Kanbas/Courses/${course._id}`} className="btn btn-outline-danger w-100">
+                    Open Course
                   </Link>
                 </div>
               </div>
