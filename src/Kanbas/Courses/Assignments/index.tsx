@@ -17,11 +17,11 @@ function Assignments() {
       <div className="d-flex justify-content-between">
         <input className="form-control" style={{width: "20%"}} placeholder="Search for Assignments"/>
         <div className="d-flex">
-            <button className="btn btn-light p-r-2 mr-2" style={{marginRight: "20px;"}}>
-                {/* <i className="fa fa-plus ms-2" style="display: contents;"></i> */}
+            <button className="btn btn-light align-items-center me-2" style={{marginRight: "20px"}}>
+                {/* <FaPlus/> */}
                 Group</button>
             <button className="btn btn-danger" style={{marginRight: "20px"}}>
-                {/* <i className="fa fa-plus ms-2" style="display: contents;"></i> */}
+                {/* <FaPlus/> */}
                 Assignment</button>
             <select className="form-select">
                 <option selected>:</option>

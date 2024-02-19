@@ -37,6 +37,7 @@ function Courses() {
             {/* <i className="fa fa-chevron-down" style={{color: "while"}}></i> */}
           </button>
         </div>
+        
         {/* Upper Nav */}
         <div className="d-none d-md-flex flex-row p-2 align-items-center justify-content-between mt-2">
         <div className="mx-4 d-flex align-items-center">

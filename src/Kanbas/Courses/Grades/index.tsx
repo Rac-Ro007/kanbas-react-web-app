@@ -1,13 +1,13 @@
 import { assignments, enrollments, grades, users } from "../../Database";
 import { useParams } from "react-router-dom";
-import { FaFileImport, FaFileExport, FaChevronDown, FaGear, FaMagnifyingGlass } from "react-icons/fa6";
+import { FaFileImport, FaFileExport, FaChevronDown, FaGear, FaMagnifyingGlass, FaFilter } from "react-icons/fa6";
 
 function Grades() {
   const { cid } = useParams();
   const as = assignments.filter((assignment) => assignment.course === cid);
   const es = enrollments.filter((enrollment) => enrollment.course === cid);
   return (
-    <div className="container p-5">
+    <div className="container p-3">
       {/* <div className="container p-5"> */}
       <div className="row justify-content-end p-3">
           <div className="col-auto">
@@ -25,7 +25,8 @@ function Grades() {
           </div>
       </div>
 
-      <div className="row pb-4">
+      <div className="pb-4">
+      <div className="row">
         <div className="col-6">
             <h4 color="red">Student Names</h4>
             <div className="input-group mb-3">
@@ -55,6 +56,8 @@ function Grades() {
             </div>
             
         </div>
+    </div> 
+    <button className="btn btn-light"><FaFilter/> Apply Filters</button>
     </div>
 
       <div className="table-responsive">

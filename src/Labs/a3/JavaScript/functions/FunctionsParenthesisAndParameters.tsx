@@ -6,10 +6,11 @@ function FunctionParenthesisAndParameters() {
 
     return (
       <div>
-        Two Sqaured = square(2)
-        <br/>{twoSquared}
-        Three Plus One = plusOne(3)
-        <br/>{threePlusOne}
+        <h4>Parenthesis and parameters</h4>
+        Two Sqaured = square(2) =
+        {twoSquared} <br/>
+        Three Plus One = plusOne(3) = 
+         {threePlusOne} <br/>
       </div>
     );
   }

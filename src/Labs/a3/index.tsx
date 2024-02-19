@@ -24,6 +24,7 @@ function Assignment3() {
       <ConditionalOutput/>
       <Add a={2} b={4} />
       {Add({ a: 1, b: 2 })}
+      <h4>Highlight React Child Component</h4>
       Lorem ipsum <Highlight>dolor sit amet</Highlight>, consectetur adipiscing
       elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis
       vulputate commodo lectus,

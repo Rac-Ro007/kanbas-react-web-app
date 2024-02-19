@@ -97,6 +97,7 @@ align-items: center;
 
 .wd-breadcrumb {
   font-size: 1.2rem;
+  margin: 0;
   --bs-breadcrumb-divider:'>';
 }
 
