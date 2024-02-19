@@ -15,7 +15,7 @@ function AssignmentEditor() {
   };
   
   return (
-    <div className="container">
+    <div className="container p-2">
       <h2>Assignment Name</h2>
       <input value={assignment?.title}
              className="form-control mb-2" />
@@ -35,7 +35,7 @@ function AssignmentEditor() {
               <label htmlFor="assignment-grp">Assignment Group</label>
           </div>
           <div className="col-9">
-              <select className="form-control">
+              <select className="form-select">
                   <option>ASSIGNMENTS</option>
               </select>
           </div>
@@ -46,7 +46,7 @@ function AssignmentEditor() {
               <label htmlFor="display-grade">Display Grade as</label>
           </div>
           <div className="col-9">
-              <select className="form-control">
+              <select className="form-select">
                   <option>Percentage</option>
                   <option>GPA</option>
               </select>
@@ -63,7 +63,7 @@ function AssignmentEditor() {
                   value="Website URL"
                   name="websiteUrl-chbox"
               /> 
-              <label htmlFor="websiteUrl-chbox">Do not count this assignment towards the final grade</label> <br />
+              <label htmlFor="websiteUrl-chbox"> Do not count this assignment towards the final grade</label> <br />
           </div>
       </div>
 
@@ -116,10 +116,10 @@ function AssignmentEditor() {
       <div className="d-flex justify-content-between align-items-center">
           <div>
               <input type="checkbox" /> 
-              <label>Notify users that this content has changed.</label>
+              <label> Notify users that this content has changed.</label>
           </div>
           <div className="d-flex">
-              <button onClick={handleSave} className="btn btn-success ms-2  float-end">
+              <button onClick={handleSave} className="btn btn-success me-2 float-end">
             Save
           </button>
           <Link to={`/Kanbas/Courses/${cid}/Assignments`}
