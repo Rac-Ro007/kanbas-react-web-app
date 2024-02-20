@@ -10,6 +10,25 @@ function ModuleList() {
   return (
     <>
       {/* <!-- Add buttons here --> */}
+      <div className="row justify-content-end p-3">
+          <div className="col-auto">
+              <button className="btn btn-light">Collapse All</button>
+          </div>
+          <div className="col-auto">
+              <button className="btn btn-light">View Progress</button>
+          </div>
+          <div className="col-auto">
+              <select className="form-select" aria-label="Default select example">
+                  <option>Publish All</option>
+                  <option>Unpublish All</option>
+              </select>
+          </div>
+          <div className="col-auto">
+              <button className="btn btn-danger">+ Modules</button>
+          </div>
+      </div>
+      <hr/>
+      
       <ul className="list-group wd-modules">
         {modulesList.map((module) => (
           <li

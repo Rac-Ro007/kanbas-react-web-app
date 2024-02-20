@@ -31,7 +31,7 @@ function KanbasNavigation() {
           key={index}
           className={pathname.includes(link.label) ? "wd-active" : ""}
         >
-          <Link to={`/Kanbas/${link.label}`}>
+          <Link to={link.label.includes('Courses') ? `/Kanbas/Courses/RS101/Home` :`/Kanbas/${link.label}` }>
             <i>{link.icon}</i> {link.label}
           </Link>
         </li>
