@@ -16,6 +16,10 @@
   text-align: center;
 }
 
+.icon-white {
+  color:white ! important;
+}
+
 .wd-kanbas-navigation li.wd-active {
   background-color: white;
 }
