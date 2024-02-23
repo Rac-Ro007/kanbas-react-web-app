@@ -86,9 +86,9 @@ function Courses() {
         </div>
       </div>
 
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(course, null, 2)}</code>
-      </pre>
+      </pre> */}
     </div>
   );
 }

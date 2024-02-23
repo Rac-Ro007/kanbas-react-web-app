@@ -1,5 +1,6 @@
 import { assignments, enrollments, grades, users } from "../../Database";
 import { useParams } from "react-router-dom";
+import './index.css';
 import { FaFileImport, FaFileExport, FaChevronDown, FaGear, FaMagnifyingGlass, FaFilter } from "react-icons/fa6";
 
 function Grades() {
@@ -61,17 +62,17 @@ function Grades() {
     </div>
 
       <div className="table-responsive">
-        <table className="table table-striped">
+        <table className="table table-striped mt-3 border wd-border-thin">
           <thead>
-            <th>Student Name</th>
-            {as.map((assignment) => (<th style={{textAlign:"center"}}>{assignment.title}</th>))}
+            <th className="wd-th-student-name">Student Name</th>
+            {as.map((assignment) => (<th className="wd-th-assignment" style={{textAlign:"center"}}>{assignment.title}<br />Out of 100</th>))}
           </thead>
           <tbody>
             {es.map((enrollment) => {
               const user = users.find((user) => user._id === enrollment.user);
               return (
                 <tr>
-                   <td>{user?.firstName} {user?.lastName}</td>
+                   <td className="wd-grade-user-col">{user?.firstName} {user?.lastName}</td>
                    {as.map((assignment) => {
                      const grade = grades.find(
                        (grade) => grade.student === enrollment.user && grade.assignment === assignment._id);

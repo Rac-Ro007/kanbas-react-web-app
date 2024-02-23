@@ -46,6 +46,19 @@ function Assignments() {
           </div>
           <ul className="list-group">
             {assignmentList.map((assignment) => (
+              <li className="list-group-item align-items-between">
+                <FaEllipsisV className="me-2" /><FaFilePen className="wd-filepen"/>
+                <span className="ms-2">                
+                  <Link
+                    to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>{assignment.title}</Link><br/>
+                  <span className="wd-assignment-details">  <span className="wd-assignment-module">{assignment.module} </span>| <b>Due</b> {assignment.Due} | {assignment.points}</span> 
+                 </span>
+                <span className="float-end">
+                  <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" /></span>
+              </li>))}
+          </ul>
+          {/* <ul className="list-group">
+            {assignmentList.map((assignment) => (
               <li className="list-group-item">
                 <FaEllipsisV className="me-2" />
                 <FaFilePen className="me-2 text-success" />
@@ -54,7 +67,7 @@ function Assignments() {
                 <span className="float-end">
                   <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" /></span>
               </li>))}
-          </ul>
+          </ul> */}
         </li>
       </ul>
     </div>

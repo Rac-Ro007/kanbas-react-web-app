@@ -1,0 +1,16 @@
+.table .wd-grade-user-col{
+    color: red;
+}
+.table .wd-grade-col{
+    text-align: center;
+}
+.table .wd-th-assignment{
+    text-align: center;
+}
+.table th{
+    font-weight: 600;
+}
+.table .wd-th-student-name{
+ vertical-align:middle;
+ padding-left: 1%;
+}

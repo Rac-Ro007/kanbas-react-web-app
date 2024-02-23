@@ -1,32 +1,52 @@
-.wd-modules,
-.wd-modules * {
-  border-radius: 0%;
-  border: none;
-  margin: 0px;
-  padding: 0px;
+.wd-search-container{
+  display: flex;
+  justify-content: space-between;
+}
+.wd-group-button,.wd-edit-button{
+ 
+  background-color: rgb(243, 243, 243)  ;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-weight: light;
+  border: 1.5px solid lightgray;
+  margin-right: 2px;
+
+}
+.wd-group-button:hover,.wd-edit-button:hover{
+background: linear-gradient(rgba(195, 192, 192, 0.764) 0 0);
+color: black;
+border: rgba(195, 192, 192, 0.764)
 }
 
-.wd-modules {
-  margin: 5px;
+.wd-filepen{
+  color: green;
+  margin-right: 7px;
 }
 
-.wd-modules > li {
-  background-color: rgb(219, 217, 217);
-  border: 1px solid gray !important;
-  border-left: none !important;
+.list-group-item a{
+  text-decoration: none;
+  color: black;
 }
 
-.wd-modules > li > div {
-  padding: 15px ! important;
-  border-left: 1px solid gray !important;
+.list-group-item a:hover{
+  text-decoration: underline;
+  color: black;
 }
 
-.wd-modules > li > ul > li {
-  padding: 12px;
-  border-top: 1px solid gray !important;
-  border-left: 4px solid green;
+.wd-assignment-details{
+  margin-left: 4.5%;
+  font-weight: 300;
+  font-size: small;
 }
 
-.wd-modules > li {
-  margin-bottom: 20px;
+.wd-assignment-module{
+  color: red;
+  font-weight: 400;
+}
+
+.wd-fa-plus-assignment{
+ margin-right: 4px;
+ margin-bottom: 3px;
+ font-size: small
 }
