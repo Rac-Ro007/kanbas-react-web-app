@@ -8,16 +8,22 @@ function Nav() {
       {JSON.stringify(pathname)}
       <nav className="nav nav-pills mt-2">
         <Link
+          className={`nav-link ${pathname.includes("a3") ? "active" : ""}`}
+          to="/Labs/a3"
+        >
+          A3
+        </Link>
+        <Link
+          className={`nav-link ${pathname.includes("a3") ? "active" : ""}`}
+          to="/Labs/a4"
+        >
+          A4
+        </Link>
+        <Link
           className={`nav-link ${pathname.includes("hello") ? "active" : ""}`}
           to="/hello"
         >
           Hello World
-        </Link>
-        <Link
-          className={`nav-link ${pathname.includes("Labs") ? "active" : ""}`}
-          to="/Labs/a3"
-        >
-          Labs
         </Link>
         <Link
           className={`nav-link ${pathname.includes("Kanbas") ? "active" : ""}`}
