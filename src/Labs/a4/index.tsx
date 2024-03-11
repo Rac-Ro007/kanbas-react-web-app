@@ -18,7 +18,7 @@ function Assignment4() {
   }
 
   return (
-    <div>
+    <div className="container-fluid">
       <h1>Assignment 4</h1>
       <ClickEvent/>
       <PassingDataOnEvent />
