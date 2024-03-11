@@ -10,4 +10,5 @@ function HelloRedux() {
     </div>
   );
 }
+
 export default HelloRedux;
