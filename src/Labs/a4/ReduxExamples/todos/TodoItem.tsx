@@ -9,9 +9,15 @@ function TodoItem({todo}: {todo: TodoType}) {
 
     return (
       <li key={todo.id} className="list-group-item">
-        <button className="btn btn-primary m-1" onClick={() => dispatch(setTodo(todo))}> Edit </button>
-        <button className="btn btn-danger m-1" onClick={() => dispatch(deleteTodo(todo.id))}> Delete </button>
-        {todo.title}
+        <div className="d-flex justify-content-between align-items-center">
+            <div className="flex">
+                {todo.title}
+            </div>
+            <div className="d-flex">
+                <button className="btn btn-primary m-1" onClick={() => dispatch(setTodo(todo))}> Edit </button>
+                <button className="btn btn-danger m-1" onClick={() => dispatch(deleteTodo(todo.id))}> Delete </button>
+            </div>
+        </div>
       </li>
     );
   }

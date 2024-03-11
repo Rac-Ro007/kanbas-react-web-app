@@ -7,19 +7,20 @@ import Highlight from "./Highlight";
 import TodoItem from "./todos/TodoItem";
 import TodoList from "./todos/TodoList";
 import ConditionalOutput from "./ConditionalOutput";
+import { useSelector } from "react-redux";
+import { LabState } from "../store";
 
 function Assignment3() {
+  const { todos } = useSelector((state: LabState) => state.todosReducer)
   return (
     <div>
       <h2>Assignment 3</h2>
       <ul className="list-group">
-        <TodoList />
-        <TodoItem
-          todo={{ done: false, title: "Buy bread", status: "IN PROGRESS" }}
-        />
-        <TodoItem
-          todo={{ done: true, title: "Feed dogs", status: "COMPLETED" }}
-        />
+        {todos.map((todo) => (
+          <li className="list-group-item" key={todo.id}>
+            {todo.title}
+          </li>
+        ))}
       </ul>
       <ConditionalOutput/>
       <Add a={2} b={4} />

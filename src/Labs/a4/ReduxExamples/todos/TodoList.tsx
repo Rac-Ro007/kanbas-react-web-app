@@ -8,14 +8,14 @@ function TodoList() {
     const { todos } = useSelector((state: LabState) => state.todosReducer);
 
     return (
-        <div>
+        <div className="container p-5">
           <h2>Todo List</h2>
-          <ul className="list-group">
-            <TodoForm />
-            {todos.map((todo: TodoType) => (
-              <TodoItem todo={todo} />
-            ))}
-          </ul>
+            <ul className="list-group">
+                <TodoForm />
+                {todos.map((todo: TodoType) => (
+                <TodoItem todo={todo} />
+                ))}
+            </ul>
         </div>
     );
 }    
