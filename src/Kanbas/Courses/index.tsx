@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import courses from "../Database/courses.json";
+// import courses from "../Database/courses.json";
 import ModuleList from "./Modules/List";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
@@ -11,12 +11,13 @@ import "./Home/index.css"
 import { HiMiniBars3 } from "react-icons/hi2";
 import { FaBars, FaChevronDown, FaGlasses } from "react-icons/fa6";
 
-function Courses() {
+function Courses({courses} : { courses: any[]; }) {
   const { cid } = useParams();
   const course = courses.find((course) => course._id === cid);
   const location = useLocation();
   const { pathname } = location;
   var currentPath = pathname.split(/[\s/]+/).pop();
+  
   return (
     <div className="container-fluid">
         <div

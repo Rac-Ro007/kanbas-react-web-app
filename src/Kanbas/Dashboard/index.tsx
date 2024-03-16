@@ -1,44 +1,20 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import {courses} from "../Database";
+// import {courses} from "../Database";
 // import db from "../Database";
 // import * as db from "../Database";
 
-function Dashboard() {
-  const [_courses, setCourses] = useState(courses);
-  const [course, setCourse] = useState({
-    _id: "0", name: "New Course", number: "New Number",
-    startDate: "2023-09-10", endDate: "2023-12-15",
-    image: "/images/reactjs.jpg"
-  });
-
-  const addNewCourse = () => {
-    const newCourse = { ...course,
-                        _id: new Date().getTime().toString() };
-    setCourses([..._courses, { ...course, ...newCourse }]);
-  };
-
-  const deleteCourse = (courseId: string) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
-  };
-
-  const updateCourse = () => {
-    setCourses(
-      courses.map((c) => {
-        if (c._id === course._id) {
-          return course;
-        } else {
-          return c;
-        }
-      })
-    );
-  };
-
+function Dashboard({ courses, course, setCourse, addNewCourse,
+  deleteCourse, updateCourse }: {
+  courses: any[]; course: any; setCourse: (course: any) => void;
+  addNewCourse: () => void; deleteCourse: (course: any) => void;
+  updateCourse: () => void; })
+  {
   return (
     <div className="p-4">
       <h1>Dashboard</h1>
       <hr />
-      <h2>Published Courses ({_courses.length})</h2>
+      <h2>Published Courses ({courses.length})</h2>
       <h5>Course</h5>
       <input value={course.name} className="form-control"
              onChange={(e) => setCourse({ ...course, name: e.target.value }) } />
@@ -57,7 +33,7 @@ function Dashboard() {
       <hr />
       <div className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
-          {_courses.map((course) => (
+          {courses.map((course) => (
             <div className="col" style={{ width: "300px" }}>
               <div className="card">
                 <img
