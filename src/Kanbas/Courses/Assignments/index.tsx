@@ -1,15 +1,38 @@
 import React from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import './index.css'
 import { FaFilePen } from "react-icons/fa6";
 import { assignments } from "../../Database";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteAssignment, setAssignment } from "./reducer";
+import { KanbasState } from "../../store";
 
 function Assignments() {
   const { cid } = useParams();
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === cid);
+  const navigate = useNavigate();
+
+  const assignmentList = useSelector((state: KanbasState) => 
+    state.assignmentsReducer.assignments.filter(
+      (assignment) => assignment.course === cid));
+  
+      const assignment = useSelector((state: KanbasState) => 
+    state.assignmentsReducer.assignment);
+  
+  const dispatch = useDispatch();
+  
+  var newAssignmentId = 'A10' + (assignmentList.length + 1);
+  // const assignmentList = assignments.filter(
+  //   (assignment) => assignment.course === cid);
+  // console.log(assignmentList)
+  
+  const newAssignment = () => {
+    dispatch(setAssignment([]));
+    navigate(`/Kanbas/Courses/${cid}/Assignments/${newAssignmentId}`)
+  }
   console.log(assignmentList)
+
+  
   
   return (
     <div className="container">
@@ -20,9 +43,9 @@ function Assignments() {
             <button className="btn btn-light align-items-center me-2" style={{marginRight: "20px"}}>
                 {/* <FaPlus/> */}
                 Group</button>
-            <button className="btn btn-danger" style={{marginRight: "20px"}}>
+            <button className="btn btn-danger" onClick={newAssignment} style={{marginRight: "20px"}}>
                 {/* <FaPlus/> */}
-                Assignment</button>
+                +Assignment</button>
             <select className="form-select">
                 <option selected>:</option>
                 <option>Edit Assignment Dates</option>
@@ -54,7 +77,9 @@ function Assignments() {
                   <span className="wd-assignment-details">  <span className="wd-assignment-module">{assignment.module} </span>| <b>Due</b> {assignment.Due} | {assignment.points}</span> 
                  </span>
                 <span className="float-end">
-                  <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" /></span>
+                  <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" />
+                  <button className="btn btn-sm btn-danger" onClick={() => dispatch(deleteAssignment(assignment._id))}>Delete</button>
+                  </span>
               </li>))}
           </ul>
           {/* <ul className="list-group">

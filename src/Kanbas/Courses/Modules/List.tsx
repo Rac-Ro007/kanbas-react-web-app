@@ -1,46 +1,28 @@
 import React, { useState } from "react";
 import "./index.css";
-import { modules } from "../../Database";
+// import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { addModule, deleteModule, updateModule, setModule } from "./reducer";
+import { KanbasState } from "../../store";
+import Modal from 'react-bootstrap/Modal';
 
 function ModuleList() {
   const { cid } = useParams();
-  const [moduleList, setModuleList] = useState<any[]>(modules);
+  const moduleList = useSelector((state: KanbasState) => 
+    state.modulesReducer.modules);
+  const module = useSelector((state: KanbasState) => 
+    state.modulesReducer.module);
+  const dispatch = useDispatch();
   // const modulesList = modules.filter((module) => module.course === cid);
   const [selectedModule, setSelectedModule] = useState(moduleList[0]);
-  const [module, setModule] = useState({
-    _id: "",
-    name: "New Module",
-    description: "New Description",
-    course: cid || '',
-  });
-  
-  const addModule = (module: any) => {
-    const newModule = { ...module,
-      _id: new Date().getTime().toString() };
-    const newModuleList = [newModule, ...moduleList];
-    setModuleList(newModuleList);
-  };
 
-  const deleteModule = (moduleId: string) => {
-    const newModuleList = moduleList.filter(
-      (module) => module._id !== moduleId );
-    setModuleList(newModuleList);
-  };
-
-  const updateModule = () => {
-    const newModuleList = moduleList.map((m) => {
-      if (m._id === module._id) {
-        return module;
-      } else {
-        return m;
-      }
-    });
-    setModuleList(newModuleList);
-  };
-
-
+  // Modal config
+  const [show, setShow] = useState(false);
+  console.log("Show", show);
+  const handleClose = () => {setShow(false); window.location.reload();};
+  const handleShow = () => setShow(true);
   return (
     <>
       {/* <!-- Add buttons here --> */}
@@ -58,26 +40,27 @@ function ModuleList() {
               </select>
           </div>
           <div className="col-auto">
-              <button className="btn btn-danger">+ Modules</button>
+              <button className="btn btn-danger" onClick={handleShow}>+ Modules</button>
           </div>
       </div>
       <hr/>
       
       <ul className="list-group wd-modules">
         <li className="list-group-item">
-          <button onClick={() => { addModule(module) }}>
+          <button onClick={() => dispatch(addModule({ ...module, course: cid }))}>
             Add
           </button>
-          <button onClick={updateModule}>
+          <button onClick={() => dispatch(updateModule(module))}>
             Update
           </button>
           <input value={module.name}
-            onChange={(e) => setModule({
-              ...module, name: e.target.value })}
+            onChange={(e) => dispatch(setModule({ 
+              ...module, name: e.target.value }))}
           />
           <textarea value={module.description}
-            onChange={(e) => setModule({
-              ...module, description: e.target.value })}
+            onChange={(e) => dispatch(setModule({ 
+              ...module, description: e.target.value }))
+          }
           />
         </li>
         {moduleList.filter((module) => module.course === cid)
@@ -87,12 +70,12 @@ function ModuleList() {
             onClick={() => setSelectedModule(module)}
           >
             <button
-              onClick={(event) => { setModule(module); }}>
+              onClick={(event) => dispatch(setModule(module))}>
               Edit
             </button>
 
             <button
-              onClick={() => deleteModule(module._id)}>
+              onClick={() => dispatch(deleteModule(module._id))}>
               Delete
             </button>
             
@@ -123,6 +106,26 @@ function ModuleList() {
             )}
           </li>
         ))}
+        <Modal show={show} 
+        backdrop="static"
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Module</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you are reading this text in a modal!
+        </Modal.Body>
+        <Modal.Footer>
+          <button className="btn btn-secondary" onClick={handleClose}>
+            Close
+          </button>
+          <button className="btn btn-primary" onClick={handleClose}>
+            Save Changes
+          </button>
+        </Modal.Footer>
+      </Modal>
       </ul>
     </>
   );

@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router";
 import Courses from "./Courses";
 import { courses } from "./Database";
+import store from "./store";
+import { Provider } from "react-redux"
 
 function Kanbas() {
   const [_courses, setCourses] = useState<any[]>(courses);
@@ -31,6 +33,7 @@ function Kanbas() {
   };
 
   return (
+    <Provider store={store}>
     <div className="d-flex">
       <div>
         <KanbasNavigation />
@@ -51,6 +54,7 @@ function Kanbas() {
         </Routes>
       </div>
     </div>
+    </Provider>
   );
 }
 export default Kanbas;
