@@ -65,8 +65,8 @@ function Courses({courses} : { courses: any[]; }) {
         </div>
         <hr />
         {/* <hr/> */}
-      <p> Courses {course?.name}</p>
-      <CourseNavigation />
+
+      {/* <CourseNavigation />
       <div>
         <div
           className="overflow-y-scroll position-fixed bottom-0 end-0"
@@ -85,7 +85,27 @@ function Courses({courses} : { courses: any[]; }) {
             <Route path="Grades" element={<Grades/>} />
           </Routes>
         </div>
-      </div>
+      </div> */}
+      <div className="d-flex flex-fill wd-content-fill">
+          <div className="d-none d-md-block">
+            <p> Courses {course?.name}</p>
+            <CourseNavigation />
+          </div>
+          <div className="flex-grow-1">
+            <Routes>
+              <Route path="/" element={<Navigate to="Home" />} />
+              <Route path="Home" element={<Home />} />
+              <Route path="Modules" element={<ModuleList />} />
+              <Route path="Piazza" element={<h1>Piazza</h1>} />
+              <Route path="Assignments" element={<Assignments />} />
+              <Route
+                path="Assignments/:assignmentId"
+                element={<AssignmentEditor />}
+              />
+              <Route path="Grades" element={<Grades />} />
+            </Routes>
+          </div>
+        </div>
 
       {/* <pre>
         <code>{JSON.stringify(course, null, 2)}</code>

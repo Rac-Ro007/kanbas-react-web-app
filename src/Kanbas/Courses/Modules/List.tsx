@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addModule, deleteModule, updateModule, setModule } from "./reducer";
 import { KanbasState } from "../../store";
 import Modal from 'react-bootstrap/Modal';
+import Collapse from 'react-bootstrap/Collapse';
 
 function ModuleList() {
   const { cid } = useParams();
@@ -20,8 +21,19 @@ function ModuleList() {
 
   // Modal config
   const [show, setShow] = useState(false);
-  console.log("Show", show);
-  const handleClose = () => {setShow(false); window.location.reload();};
+  
+  const clearModule = () => dispatch(setModule([]))
+  
+  const handleCreate = () => {
+    dispatch(addModule({ ...module, course: cid }));
+    clearModule();
+  };
+
+  const handleUpdate = () => {
+    dispatch(updateModule(module));
+    clearModule();
+  };
+
   const handleShow = () => setShow(true);
   return (
     <>
@@ -40,45 +52,53 @@ function ModuleList() {
               </select>
           </div>
           <div className="col-auto">
-              <button className="btn btn-danger" onClick={handleShow}>+ Modules</button>
+              <button className="btn btn-danger" onClick={()=> setShow(!show)}>+ Modules</button>
           </div>
       </div>
       <hr/>
       
+      <a className="btn btn-danger" onClick={()=> setShow(!show)}
+        aria-controls="example-collapse-text"
+        aria-expanded={show}>
+        Module Operations
+      </a>
+      <Collapse in={show}>
+        <div className="m-3" id="example-collapse-text">
+          <div className="d-flex justify-content-around">
+            <input className="form-control m-2" value={module.name}
+              onChange={(e) => dispatch(setModule({ 
+                ...module, name: e.target.value }))}
+            />
+            <textarea className="form-control m-2" value={module.description}
+              onChange={(e) => dispatch(setModule({ 
+                ...module, description: e.target.value }))
+            }
+            />
+          </div>
+          <div className="row m-2">
+            <div className="col-6">
+            <button className="btn btn-success w-100" onClick={handleCreate}>
+              Add Module
+            </button>
+            </div>
+            <div className="col-6">
+            <button className="btn btn-primary w-100" onClick={handleUpdate}>
+              Update Module
+            </button>
+            </div>
+            </div>
+        </div>
+      </Collapse>
+    
       <ul className="list-group wd-modules">
-        <li className="list-group-item">
-          <button onClick={() => dispatch(addModule({ ...module, course: cid }))}>
-            Add
-          </button>
-          <button onClick={() => dispatch(updateModule(module))}>
-            Update
-          </button>
-          <input value={module.name}
-            onChange={(e) => dispatch(setModule({ 
-              ...module, name: e.target.value }))}
-          />
-          <textarea value={module.description}
-            onChange={(e) => dispatch(setModule({ 
-              ...module, description: e.target.value }))
-          }
-          />
-        </li>
+        {/* <li className="list-group-item"> */}
+        {/* </li> */}
         {moduleList.filter((module) => module.course === cid)
         .map((module) => (
           <li
             className="list-group-item"
             onClick={() => setSelectedModule(module)}
           >
-            <button
-              onClick={(event) => dispatch(setModule(module))}>
-              Edit
-            </button>
-
-            <button
-              onClick={() => dispatch(deleteModule(module._id))}>
-              Delete
-            </button>
-            
             <div>
               <FaEllipsisV className="me-2" />
               {module.name}
@@ -106,23 +126,38 @@ function ModuleList() {
             )}
           </li>
         ))}
-        <Modal show={show} 
+        <Modal 
         backdrop="static"
-        onHide={handleClose}
+        onHide={()=> {setShow(false); window.location.reload();}}
         aria-labelledby="contained-modal-title-vcenter"
         centered>
         <Modal.Header closeButton>
           <Modal.Title>Add New Module</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Woohoo, you are reading this text in a modal!
+          <div className="container">
+            <div className="row">
+              <input className="form-control m-2" value={module.name}
+                onChange={(e) => dispatch(setModule({ 
+                  ...module, name: e.target.value }))}
+              />
+            </div>
+
+            <div className="row">
+              <textarea className="form-control m-2" value={module.description}
+                onChange={(e) => dispatch(setModule({ 
+                  ...module, description: e.target.value }))
+                  }
+              />
+            </div>
+          </div>
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-secondary" onClick={handleClose}>
-            Close
+          <button className="btn btn-warning" onClick={handleUpdate}>
+            Update
           </button>
-          <button className="btn btn-primary" onClick={handleClose}>
-            Save Changes
+          <button className="btn btn-primary" onClick={handleCreate}>
+            Create 
           </button>
         </Modal.Footer>
       </Modal>

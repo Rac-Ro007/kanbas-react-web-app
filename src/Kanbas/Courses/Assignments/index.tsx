@@ -70,7 +70,31 @@ function Assignments() {
           <ul className="list-group">
             {assignmentList.map((assignment) => (
               <li className="list-group-item align-items-between">
-                <FaEllipsisV className="me-2" /><FaFilePen className="wd-filepen"/>
+                <div className="d-flex">
+                  <div style={{ alignSelf: "center" }}>
+                    <FaEllipsisV className="me-2" />
+                    <FaFilePen className="m-2 text-success" />
+                  </div>
+                  <div className="text-secondary p-1">
+                    <Link
+                      to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                    >
+                      {assignment.title}
+                    </Link>
+                    <br />
+                    <small>
+                      {assignment.module} | Due {assignment.Due} |{" "}
+                      {assignment.points} pts
+                    </small>
+                  </div>
+                  <div className="ms-auto" style={{ alignSelf: "center" }}>
+                    <span>
+                      <FaCheckCircle className="text-success" />
+                      <FaEllipsisV className="ms-2" />
+                    </span>
+                  </div>
+                </div>
+                {/* <FaEllipsisV className="me-2" /><FaFilePen className="wd-filepen"/>
                 <span className="ms-2">                
                   <Link
                     to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}>{assignment.title}</Link><br/>
@@ -79,7 +103,7 @@ function Assignments() {
                 <span className="float-end">
                   <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" />
                   <button className="btn btn-sm btn-danger" onClick={() => dispatch(deleteAssignment(assignment._id))}>Delete</button>
-                  </span>
+                  </span> */}
               </li>))}
           </ul>
           {/* <ul className="list-group">
