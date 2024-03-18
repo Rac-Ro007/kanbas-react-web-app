@@ -34,7 +34,6 @@ function ModuleList() {
     clearModule();
   };
 
-  const handleShow = () => setShow(true);
   return (
     <>
       {/* <!-- Add buttons here --> */}

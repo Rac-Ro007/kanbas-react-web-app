@@ -91,7 +91,7 @@ function Courses({courses} : { courses: any[]; }) {
             <p> Courses {course?.name}</p>
             <CourseNavigation />
           </div>
-          <div className="flex-grow-1">
+          <div className="flex-grow-1 p-3">
             <Routes>
               <Route path="/" element={<Navigate to="Home" />} />
               <Route path="Home" element={<Home />} />
