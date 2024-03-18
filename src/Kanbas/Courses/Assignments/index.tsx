@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { FaCheckCircle, FaEllipsisV, FaPlusCircle } from "react-icons/fa";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import './index.css'
@@ -7,6 +7,8 @@ import { assignments } from "../../Database";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteAssignment, setAssignment } from "./reducer";
 import { KanbasState } from "../../store";
+import { MdDelete } from "react-icons/md";
+import Modal from 'react-bootstrap/Modal';
 
 function Assignments() {
   const { cid } = useParams();
@@ -21,6 +23,8 @@ function Assignments() {
   
   const dispatch = useDispatch();
   
+  const [deleteModal, setDeleteModal] = useState(false);
+  
   var newAssignmentId = 'A10' + (assignmentList.length + 1);
   // const assignmentList = assignments.filter(
   //   (assignment) => assignment.course === cid);
@@ -31,6 +35,11 @@ function Assignments() {
     navigate(`/Kanbas/Courses/${cid}/Assignments/${newAssignmentId}`)
   }
   console.log(assignmentList)
+
+  const handleDelete = () => {
+    dispatch(deleteAssignment(assignment._id));
+    setDeleteModal(false);
+  }
 
   
   
@@ -92,6 +101,8 @@ function Assignments() {
                       <FaCheckCircle className="text-success" />
                       <FaEllipsisV className="ms-2" />
                     </span>
+                    <a style={{cursor:"pointer"}} onClick={() => {dispatch(setAssignment(assignment)); setDeleteModal(true)}}>
+                      <MdDelete className="text-danger ms-2" size={20} /></a>
                   </div>
                 </div>
                 {/* <FaEllipsisV className="me-2" /><FaFilePen className="wd-filepen"/>
@@ -117,6 +128,34 @@ function Assignments() {
                   <FaCheckCircle className="text-success" /><FaEllipsisV className="ms-2" /></span>
               </li>))}
           </ul> */}
+          {/* Delete Modal */}
+          {deleteModal && (
+            <Modal 
+            show={deleteModal}
+            backdrop="static"
+            onHide={()=> {setDeleteModal(false);}}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Module?</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="container align-items-center">
+                <h5>Are you sure you want to delete the Assignment?</h5>
+                <h5 style={{color:"red"}}>{assignment._id} | {assignment.title}</h5>
+                <hr/>
+                <div className="d-flex justify-content-around m-2">
+                  <button className="btn btn-secondary m-2 w-100" onClick={() => setDeleteModal(false)}>
+                    Cancel
+                  </button>
+                  <button className="btn btn-outline-danger m-2 w-100" onClick={handleDelete}>
+                    Delete 
+                  </button>
+                </div>
+              </div>
+            </Modal.Body>
+          </Modal>
+          )}
         </li>
       </ul>
     </div>

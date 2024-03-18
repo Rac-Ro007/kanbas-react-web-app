@@ -20,13 +20,16 @@ function AssignmentEditor() {
     
   // Check whether existing key is present
     const existingAssignment  = assignmentList.find(
-    (assignment) => assignment._id === assignmentId);
+    (assignment) => assignment._id === assignmentId && assignment.course === cid);
 
   useEffect(() => {
     if(existingAssignment !== undefined) {
         console.log('Setting Found ID')
         dispatch(setAssignment(existingAssignment))
-        console.log(assignment)
+        console.log(existingAssignment)
+    }
+    else {
+        dispatch(setAssignment([]))
     }
   },[])
 

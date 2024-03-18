@@ -8,6 +8,7 @@ import { addModule, deleteModule, updateModule, setModule } from "./reducer";
 import { KanbasState } from "../../store";
 import Modal from 'react-bootstrap/Modal';
 import Collapse from 'react-bootstrap/Collapse';
+import { MdEdit, MdDelete } from "react-icons/md";
 
 function ModuleList() {
   const { cid } = useParams();
@@ -21,16 +22,27 @@ function ModuleList() {
 
   // Modal config
   const [show, setShow] = useState(false);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const [deleteModal, setDeleteModal] = useState(false);
+
+  const handleDelete = () => {
+    dispatch(deleteModule(module._id));
+    setDeleteModal(false);
+  }
   
   const clearModule = () => dispatch(setModule([]))
   
   const handleCreate = () => {
     dispatch(addModule({ ...module, course: cid }));
+    setShowModal(false);
     clearModule();
   };
 
   const handleUpdate = () => {
     dispatch(updateModule(module));
+    setShowModal(false);
     clearModule();
   };
 
@@ -51,12 +63,13 @@ function ModuleList() {
               </select>
           </div>
           <div className="col-auto">
-              <button className="btn btn-danger" onClick={()=> setShow(!show)}>+ Modules</button>
+              <button className="btn btn-danger" onClick={()=> {clearModule(); setShowModal(true)}}>+ Modules</button>
           </div>
       </div>
       <hr/>
       
-      <a className="btn btn-danger" onClick={()=> setShow(!show)}
+      <p style={{color:"red"}}>To Add - Click on "+Modules", To Edit - Click on "Pen" Icon, To Delete - Click on "Bin" Icon</p>
+      {/* <a className="btn btn-danger" onClick={()=> setShow(!show)}
         aria-controls="example-collapse-text"
         aria-expanded={show}>
         Module Operations
@@ -85,9 +98,13 @@ function ModuleList() {
               Update Module
             </button>
             </div>
-            </div>
+          </div>
         </div>
       </Collapse>
+
+      <a className="btn btn-danger" onClick={()=> setShowModal(true)}>
+        Module Modal
+      </a> */}
     
       <ul className="list-group wd-modules">
         {/* <li className="list-group-item"> */}
@@ -107,7 +124,18 @@ function ModuleList() {
                 <FaCheckCircle className="text-success" />
                 <FaPlusCircle className="ms-2" />
                 <FaEllipsisV className="ms-2" />
+                <a style={{cursor:"pointer"}} onClick={() => {dispatch(setModule(module)); setShowModal(true)}}><MdEdit className="text-warning ms-2" size={20} /></a>
+                      <a style={{cursor:"pointer"}} onClick={() => {dispatch(setModule(module)); setDeleteModal(true)}}><MdDelete className="text-danger ms-2" size={20} /></a>
               </span>
+              {/* <button
+                onClick={(event) => {dispatch(setModule(module)); setShowModal(true)}}>
+                Edit
+              </button>
+
+              <button
+                onClick={() => {dispatch(setModule(module)); setDeleteModal(true)}}>
+                Delete
+              </button> */}
             </div>
             {selectedModule._id === module._id && (
               <ul className="list-group">
@@ -125,41 +153,95 @@ function ModuleList() {
             )}
           </li>
         ))}
-        <Modal 
-        backdrop="static"
-        onHide={()=> {setShow(false); window.location.reload();}}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Add New Module</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="container">
-            <div className="row">
+        {showModal && (
+          <Modal 
+          show={showModal}
+          onHide={()=> {setShowModal(false);}}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Add / Update Module</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="container align-items-center">
+              <div className="p-2">
               <input className="form-control m-2" value={module.name}
+                placeholder="Enter Module Name"
                 onChange={(e) => dispatch(setModule({ 
                   ...module, name: e.target.value }))}
               />
-            </div>
-
-            <div className="row">
               <textarea className="form-control m-2" value={module.description}
+                placeholder="Enter Module Description"
                 onChange={(e) => dispatch(setModule({ 
                   ...module, description: e.target.value }))
-                  }
+              }
               />
             </div>
+            <div className="row m-2">
+              <div className="col-6">
+              <button className="btn btn-success w-100" onClick={handleCreate}>
+                Add Module
+              </button>
+              </div>
+              <div className="col-6">
+              <button className="btn btn-primary w-100" onClick={handleUpdate}>
+                Update Module
+              </button>
+              </div>
+            </div>
           </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <button className="btn btn-warning" onClick={handleUpdate}>
-            Update
-          </button>
-          <button className="btn btn-primary" onClick={handleCreate}>
-            Create 
-          </button>
-        </Modal.Footer>
-      </Modal>
+          </Modal.Body>
+          {/* <Modal.Footer>
+            <div className="d-flex justify-content-around">
+              <button className="btn btn-warning w-100" onClick={handleUpdate}>
+                Update
+              </button>
+              <button className="btn btn-primary" onClick={handleCreate}>
+                Create 
+              </button>
+            </div>
+          </Modal.Footer> */}
+        </Modal>
+        )}
+
+        {/* Delete Modal */}
+        {deleteModal && (
+          <Modal 
+          show={deleteModal}
+          backdrop="static"
+          onHide={()=> {setDeleteModal(false);}}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete Module?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="container align-items-center">
+              <h5>Are you sure you want to delete the Module?</h5>
+              <h5 style={{color:"red"}}>{module._id} | {module.name}</h5>
+              <hr/>
+              <div className="d-flex justify-content-around m-2">
+                <button className="btn btn-secondary m-2 w-100" onClick={() => setDeleteModal(false)}>
+                  Cancel
+                </button>
+                <button className="btn btn-outline-danger m-2 w-100" onClick={handleDelete}>
+                  Delete 
+                </button>
+              </div>
+            </div>
+          </Modal.Body>
+          {/* <Modal.Footer>
+            <div className="d-flex justify-content-around">
+              <button className="btn btn-secondary w-100" onClick={() => setDeleteModal(false)}>
+                Cancel
+              </button>
+              <button className="btn btn-danger w-100" onClick={handleDelete}>
+                Delete 
+              </button>
+            </div>
+          </Modal.Footer> */}
+        </Modal>
+        )}
       </ul>
     </>
   );
