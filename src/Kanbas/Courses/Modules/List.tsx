@@ -115,18 +115,29 @@ function ModuleList() {
             className="list-group-item"
             onClick={() => setSelectedModule(module)}
           >
-            <div>
-              <FaEllipsisV className="me-2" />
-              {module.name}
+            <div className="d-flex">
+              <div style={{ alignSelf: "center" }}>
+                <FaEllipsisV className="me-2" />
+              </div>
+              <div className="p-1">
+                  {module.name}
+                <br />
+                <small>
+                  {module.description} | {module._id}
+                </small>
+              </div>
+              <div className="ms-auto" style={{ alignSelf: "center" }}>
+                <span className="float-end">
+                  <FaCheckCircle className="text-success" />
+                  <FaPlusCircle className="ms-2" />
+                  <FaEllipsisV className="ms-2" />
+                  <a style={{cursor:"pointer"}} onClick={() => {dispatch(setModule(module)); setShowModal(true)}}><MdEdit className="text-warning ms-2" size={20} /></a>
+                        <a style={{cursor:"pointer"}} onClick={() => {dispatch(setModule(module)); setDeleteModal(true)}}><MdDelete className="text-danger ms-2" size={20} /></a>
+                </span>
+              </div>
+              {/* {module.name}
               <p>{module.description}</p>
-              <p>{module._id}</p>
-              <span className="float-end">
-                <FaCheckCircle className="text-success" />
-                <FaPlusCircle className="ms-2" />
-                <FaEllipsisV className="ms-2" />
-                <a style={{cursor:"pointer"}} onClick={() => {dispatch(setModule(module)); setShowModal(true)}}><MdEdit className="text-warning ms-2" size={20} /></a>
-                      <a style={{cursor:"pointer"}} onClick={() => {dispatch(setModule(module)); setDeleteModal(true)}}><MdDelete className="text-danger ms-2" size={20} /></a>
-              </span>
+              <p>{module._id}</p> */}
               {/* <button
                 onClick={(event) => {dispatch(setModule(module)); setShowModal(true)}}>
                 Edit

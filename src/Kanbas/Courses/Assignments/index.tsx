@@ -92,7 +92,7 @@ function Assignments() {
                     </Link>
                     <br />
                     <small>
-                      {assignment.module} | Due {assignment.Due} |{" "}
+                      {assignment.module} | Due {assignment.Due ? assignment.Due: assignment.dueDate} | {" "}
                       {assignment.points} pts
                     </small>
                   </div>
