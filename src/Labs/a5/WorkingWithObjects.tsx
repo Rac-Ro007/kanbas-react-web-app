@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function WorkingWithObjects() {
     const [assignment, setAssignment] = useState({
@@ -13,6 +14,21 @@ function WorkingWithObjects() {
       });
     const ASSIGNMENT_URL = "http://localhost:4000/a5/assignment"
     const MODULE_URL = "http://localhost:4000/a5/module"
+    
+    const fetchAssignment = async () => {
+      const response = await axios.get(`${ASSIGNMENT_URL}`);
+      setAssignment(response.data);
+    };
+    
+    const updateTitle = async () => {
+      const response = await axios
+        .get(`${ASSIGNMENT_URL}/title/${assignment.title}`);
+      setAssignment(response.data);
+    };
+    
+    useEffect(() => {
+      fetchAssignment();
+    }, []);  
 
   return (
     <div>
@@ -27,6 +43,12 @@ function WorkingWithObjects() {
         <a className="btn btn-primary m-2" href={`${ASSIGNMENT_URL}/title/${assignment.title}`}>
             Update Title
         </a>
+        <button className="btn btn-success m-2" onClick={updateTitle} >
+          Update Title to: {assignment.title}
+        </button>
+        <button className="btn btn-warning m-2" onClick={fetchAssignment} >
+          Fetch Assignment
+        </button>
       </div>
       <div className="d-flex">
         <input type="number" className="form-control w-25 m-2"

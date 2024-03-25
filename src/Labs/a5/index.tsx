@@ -1,6 +1,7 @@
 import EncodingParametersInURLs from "./EncodingParametersInURLs";
 import WorkingWithObjects from "./WorkingWithObjects";
 import WorkingWithArrays from "./WorkingWithArrays";
+import '../../App.css';
 
 function Assignment5() {
   return (
