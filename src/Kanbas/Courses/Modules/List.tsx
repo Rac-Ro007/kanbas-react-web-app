@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 // import { modules } from "../../Database";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
@@ -9,16 +9,25 @@ import { KanbasState } from "../../store";
 import Modal from 'react-bootstrap/Modal';
 import Collapse from 'react-bootstrap/Collapse';
 import { MdEdit, MdDelete } from "react-icons/md";
+import * as client from './client';
 
 function ModuleList() {
   const { cid } = useParams();
-  const moduleList = useSelector((state: KanbasState) => 
-    state.modulesReducer.modules);
+  const [moduleList, setModuleList] = useState([]);
+  // const moduleList = useSelector((state: KanbasState) => 
+  //   state.modulesReducer.modules);
   const module = useSelector((state: KanbasState) => 
     state.modulesReducer.module);
   const dispatch = useDispatch();
-  // const modulesList = modules.filter((module) => module.course === cid);
-  const [selectedModule, setSelectedModule] = useState(moduleList[0]);
+  const fetchModules = async(cid?:string) => {
+    const modules = await client.fetchModulesForCourse(cid)
+    setModuleList(modules)
+  }
+
+  useEffect(() => {
+    fetchModules(cid);
+  }, [])
+  const [selectedModule, setSelectedModule] = useState<any>(moduleList[0]);
 
   // Modal config
   const [show, setShow] = useState(false);
@@ -28,7 +37,7 @@ function ModuleList() {
   const [deleteModal, setDeleteModal] = useState(false);
 
   const handleDelete = () => {
-    dispatch(deleteModule(module._id));
+    dispatch(deleteModule(module?._id));
     setDeleteModal(false);
   }
   
@@ -109,8 +118,8 @@ function ModuleList() {
       <ul className="list-group wd-modules">
         {/* <li className="list-group-item"> */}
         {/* </li> */}
-        {moduleList.filter((module) => module.course === cid)
-        .map((module) => (
+        {moduleList && moduleList.filter((module: any) => module.course === cid)
+        .map((module:any) => (
           <li
             className="list-group-item"
             onClick={() => setSelectedModule(module)}
@@ -148,7 +157,7 @@ function ModuleList() {
                 Delete
               </button> */}
             </div>
-            {selectedModule._id === module._id && (
+            {selectedModule?._id === module._id && (
               <ul className="list-group">
                 {module.lessons?.map((lesson:any) => (
                   <li className="list-group-item">
@@ -176,17 +185,17 @@ function ModuleList() {
           <Modal.Body>
             <div className="container align-items-center">
               <div className="p-2">
-              <input className="form-control m-2" value={module.name}
+              {/* <input className="form-control m-2" value={module?.name}
                 placeholder="Enter Module Name"
                 onChange={(e) => dispatch(setModule({ 
                   ...module, name: e.target.value }))}
               />
-              <textarea className="form-control m-2" value={module.description}
+              <textarea className="form-control m-2" value={module?.description}
                 placeholder="Enter Module Description"
                 onChange={(e) => dispatch(setModule({ 
                   ...module, description: e.target.value }))
               }
-              />
+              /> */}
             </div>
             <div className="row m-2">
               <div className="col-6">
@@ -229,7 +238,7 @@ function ModuleList() {
           <Modal.Body>
             <div className="container align-items-center">
               <h5>Are you sure you want to delete the Module?</h5>
-              <h5 style={{color:"red"}}>{module._id} | {module.name}</h5>
+              {/* <h5 style={{color:"red"}}>{module._id} | {module.name}</h5> */}
               <hr/>
               <div className="d-flex justify-content-around m-2">
                 <button className="btn btn-secondary m-2 w-100" onClick={() => setDeleteModal(false)}>

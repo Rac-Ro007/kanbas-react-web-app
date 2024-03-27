@@ -1,38 +1,57 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Collapse from 'react-bootstrap/Collapse';
 import Modal from 'react-bootstrap/Modal';
+import * as client from "../Courses/client";
 // import {courses} from "../Database";
 // import db from "../Database";
 // import * as db from "../Database";
 
-function Dashboard({ courses, course, setCourse, addNewCourse,
-  deleteCourse, updateCourse }: {
-  courses: any[]; course: any; setCourse: (course: any) => void;
-  addNewCourse: () => void; deleteCourse: (course: any) => void;
-  updateCourse: () => void; })
-  {
+function Dashboard() {
     // Modal config
   const [show, setShow] = useState(false);
+
+  const [courses, setCourses] = useState([]);
+  const [course, setCourse] = useState({} as any);
+
+  const fetchAllCourses = async () => {
+    const courses = await client.fetchAllCourses();
+    setCourses(courses);
+  };
+
+  const createCourse = async () => {
+    const newCourse = await client.createCourse(course);
+    fetchAllCourses();
+    // setCourses([newCourse, ...courses]);
+  };
+
+  // const deleteCourse = async (id: string) => {
+  //   const courses = await client.deleteCourse(id);
+  //   setCourses(courses);
+  // };
+
+  useEffect(() => {
+    fetchAllCourses();
+  }, []);
   
   const clearCourse = () => setCourse([]);
   
-  const handleCreate = () => {
-    addNewCourse();
-    clearCourse();
-    setShow(false);
-  };
+  // const handleCreate = () => {
+  //   addNewCourse();
+  //   clearCourse();
+  //   setShow(false);
+  // };
 
-  const handleUpdate = () => {
-    updateCourse();
-    clearCourse();
-    setShow(false);
-  };
+  // const handleUpdate = () => {
+  //   updateCourse();
+  //   clearCourse();
+  //   setShow(false);
+  // };
 
-  const handleDelete = () => {
-    deleteCourse(course._id);
-    setDeleteModal(false);
-  }
+  // const handleDelete = () => {
+  //   deleteCourse(course._id);
+  //   setDeleteModal(false);
+  // }
 
   const [deleteModal, setDeleteModal] = useState(false);
   return (
@@ -64,12 +83,12 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
 
           <div className="row m-2">
             <div className="col-6">
-            <button className="btn btn-success w-100" onClick={handleCreate}>
+            <button className="btn btn-success w-100" onClick={createCourse}>
               Add Course
             </button>
             </div>
             <div className="col-6">
-            <button className="btn btn-primary w-100" onClick={handleUpdate}>
+            <button className="btn btn-primary w-100" onClick={createCourse}>
               Update Course
             </button>
           </div>
@@ -93,7 +112,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
       <hr />
       <div className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
-          {courses.map((course) => (
+          {courses.map((course:any) => (
             <div className="col" style={{ width: "300px" }}>
               <div className="card">
                 <img
@@ -104,14 +123,14 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                 <div className="card-body">
                   <Link
                     className="card-title"
-                    to={`/Kanbas/Courses/${course._id}`}
+                    to={`/Kanbas/Courses/${course?._id}`}
                     style={{
                       textDecoration: "none",
                       color: "navy",
                       fontWeight: "bold",
                     }}
                   >
-                    {course.name}
+                    {course?.name}
                   </Link>
                   <p className="card-text">Full Stack software developer</p>
                   <Link to={`/Kanbas/Courses/${course._id}`} className="btn btn-outline-danger w-100">
@@ -160,7 +179,7 @@ function Dashboard({ courses, course, setCourse, addNewCourse,
                 <button className="btn btn-secondary m-2 w-100" onClick={() => setDeleteModal(false)}>
                   Cancel
                 </button>
-                <button className="btn btn-outline-danger m-2 w-100" onClick={handleDelete}>
+                <button className="btn btn-outline-danger m-2 w-100" onClick={() => setDeleteModal(false)}>
                   Delete 
                 </button>
               </div>
