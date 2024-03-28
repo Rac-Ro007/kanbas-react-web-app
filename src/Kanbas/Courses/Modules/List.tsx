@@ -4,7 +4,7 @@ import "./index.css";
 import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { addModule, deleteModule, updateModule, setModule } from "./reducer";
+import { addModule, deleteModule, updateModule, setModule, setModules } from "./reducer";
 import { KanbasState } from "../../store";
 import Modal from 'react-bootstrap/Modal';
 import Collapse from 'react-bootstrap/Collapse';
@@ -19,14 +19,32 @@ function ModuleList() {
   const module = useSelector((state: KanbasState) => 
     state.modulesReducer.module);
   const dispatch = useDispatch();
+  
   const fetchModules = async(cid?:string) => {
     const modules = await client.fetchModulesForCourse(cid)
     setModuleList(modules)
   }
 
+  const handleAddModule = () => {
+    client.createModule(cid, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId: string) => {
+    client.deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  }
+
+  const handleUpdateModule = async () => {
+    const status = await client.updateModule(module);
+    dispatch(updateModule(module));
+  };
+
   useEffect(() => {
     fetchModules(cid);
-  }, [])
+  }, [moduleList])
   const [selectedModule, setSelectedModule] = useState<any>(moduleList[0]);
 
   // Modal config
@@ -37,22 +55,25 @@ function ModuleList() {
   const [deleteModal, setDeleteModal] = useState(false);
 
   const handleDelete = () => {
-    dispatch(deleteModule(module?._id));
+    handleDeleteModule(module?._id);
     setDeleteModal(false);
+    // fetchModules(cid);
   }
   
   const clearModule = () => dispatch(setModule([]))
   
   const handleCreate = () => {
-    dispatch(addModule({ ...module, course: cid }));
+    handleAddModule();
     setShowModal(false);
     clearModule();
+    // fetchModules(cid);
   };
 
   const handleUpdate = () => {
-    dispatch(updateModule(module));
+    handleUpdateModule();
     setShowModal(false);
     clearModule();
+    // fetchModules(cid);
   };
 
   return (
@@ -185,7 +206,7 @@ function ModuleList() {
           <Modal.Body>
             <div className="container align-items-center">
               <div className="p-2">
-              {/* <input className="form-control m-2" value={module?.name}
+              <input className="form-control m-2" value={module?.name}
                 placeholder="Enter Module Name"
                 onChange={(e) => dispatch(setModule({ 
                   ...module, name: e.target.value }))}
@@ -195,7 +216,7 @@ function ModuleList() {
                 onChange={(e) => dispatch(setModule({ 
                   ...module, description: e.target.value }))
               }
-              /> */}
+              />
             </div>
             <div className="row m-2">
               <div className="col-6">
@@ -238,7 +259,7 @@ function ModuleList() {
           <Modal.Body>
             <div className="container align-items-center">
               <h5>Are you sure you want to delete the Module?</h5>
-              {/* <h5 style={{color:"red"}}>{module._id} | {module.name}</h5> */}
+              <h5 style={{color:"red"}}>{module._id} | {module.name}</h5>
               <hr/>
               <div className="d-flex justify-content-around m-2">
                 <button className="btn btn-secondary m-2 w-100" onClick={() => setDeleteModal(false)}>

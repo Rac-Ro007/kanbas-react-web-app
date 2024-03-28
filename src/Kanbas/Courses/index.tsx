@@ -26,7 +26,7 @@ function Courses({courses} : { courses: any[]; }) {
   
   useEffect(() => {
     fetchCourse(cid)
-  }, [])
+  }, [cid])
   return (
     <div className="container-fluid">
         <div

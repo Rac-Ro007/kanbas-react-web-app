@@ -19,22 +19,33 @@ function Dashboard() {
     setCourses(courses);
   };
 
+  const clearCourse = () => setCourse([]);
+
   const createCourse = async () => {
-    const newCourse = await client.createCourse(course);
-    fetchAllCourses();
-    // setCourses([newCourse, ...courses]);
+    const newCourses = await client.createCourse(course);
+    // fetchAllCourses();
+    setCourses(newCourses);
+    clearCourse();
+    setShow(false);
   };
 
-  // const deleteCourse = async (id: string) => {
-  //   const courses = await client.deleteCourse(id);
-  //   setCourses(courses);
-  // };
+  const updateCourse = async (id: string) => {
+    const courses = await client.updateCourse(id, course);
+    // fetchAllCourses();
+    setCourses(courses);
+    clearCourse();
+    setShow(false);
+  };
+
+  const deleteCourse = async (id: string) => {
+    const courses = await client.deleteCourse(id);
+    setCourses(courses);
+    // fetchAllCourses();
+  };
 
   useEffect(() => {
     fetchAllCourses();
   }, []);
-  
-  const clearCourse = () => setCourse([]);
   
   // const handleCreate = () => {
   //   addNewCourse();
@@ -48,10 +59,10 @@ function Dashboard() {
   //   setShow(false);
   // };
 
-  // const handleDelete = () => {
-  //   deleteCourse(course._id);
-  //   setDeleteModal(false);
-  // }
+  const handleDelete = () => {
+    deleteCourse(course._id);
+    setDeleteModal(false);
+  }
 
   const [deleteModal, setDeleteModal] = useState(false);
   return (
@@ -88,7 +99,7 @@ function Dashboard() {
             </button>
             </div>
             <div className="col-6">
-            <button className="btn btn-primary w-100" onClick={createCourse}>
+            <button className="btn btn-primary w-100" onClick={() => {updateCourse(course._id)}}>
               Update Course
             </button>
           </div>
@@ -179,7 +190,7 @@ function Dashboard() {
                 <button className="btn btn-secondary m-2 w-100" onClick={() => setDeleteModal(false)}>
                   Cancel
                 </button>
-                <button className="btn btn-outline-danger m-2 w-100" onClick={() => setDeleteModal(false)}>
+                <button className="btn btn-outline-danger m-2 w-100" onClick={handleDelete}>
                   Delete 
                 </button>
               </div>
